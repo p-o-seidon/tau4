@@ -61,6 +61,9 @@ class EmlidReachGPS(Sensor3):
     #   P U B L I C   I N T E R F A C E
     class Receiver:
         
+        """ Übernimmt das Empfangen und Verarbeiten der Daten.
+        """
+        
         def __init__( self):
             self.__datastr = b""
             self.__buffersize = 64
@@ -111,50 +114,16 @@ class EmlidReachGPS(Sensor3):
         
         self.__wP = Vector3()
                                         # (Eigene) Position relativ {W}.
-#        self.__fv_default = flex.VariableDeMo( value=self.bP(), label="bP")
-# ##### 2016-11-17
         self.__satellite_count = 0
         
         self.__receiver = self.Receiver()
-        
+                                        # Übernimmt das Empfangen und Verabreiten 
+                                        #   der Daten
         self.__fv_status = NaviStatus()
         
         self.__fv_default = flex.VariableDeClMo( value=0.0, label="Distance from wPorg", dim="m")
         return
 
-# ##### 2016-11-20
-#    def base( self):
-#        """Der geteachte BaseFrame, weil wir mit dem {W} nichts anfangen können.
-#        
-#        Unser Navi liefert also nicht nur Koordinaten relativ {W} sondern auch 
-#        relativ {B}! Letzteres muss natürlich geteacht worden sein!
-#        """
-#        return Locator().bases().wB()
-# ##### 2016-11-20
-    
-# ##### 2016-11-17
-#    def bP( self): # Eigene, aktuelle Position rel. Locator().bases().wB()
-#        """Aktuelle Position relativ {B}.
-#        
-#        Nur Position, keine Orientierung.
-#        """
-#        bP = Locator().bases().wB().bPos( self.wP())
-#        #                      ^               ^ 
-#        #                      |               |
-#        #                      |               w
-#        #                      |                P...Aktuelle Position relativ 
-#        #                      |                    {W} - gemessener Wert,
-#        #                      w
-#        #                       B...Org der Base relativ {W}
-#        return bP
-#
-# ##### 2016-11-17
-
-# ##### 2016-11-17
-#    def bXY( self):
-#        return self.bP().xy()
-# ##### 2016-11-17
-        
     def execute( self): # Daten einlesen und für Abruf bereithalten
         """Daten einlesen und für Abruf bereithalten.
         """

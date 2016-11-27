@@ -26,7 +26,6 @@ import abc, time
 
 from tau4.data import flex
 from tau4.io.hal import HAL4IOs
-#from tau4.iio import iAINP, iAINPs, iAOUT, iAOUTs, iDINP, iDINPs, iDOUT, iDOUTs
 from tau4.sweng import overrides, PublisherChannel
 from tau4.threads import Cycler
 
