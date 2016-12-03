@@ -21,6 +21,8 @@
 
 import abc
 
+from tau4 import ThisName
+from tau4.datalogging import UsrEventLog
 from tau4.sweng import Singleton
 
 
@@ -33,47 +35,68 @@ class SM:
     runtime, which state machine they belong to!
     """
 
-    def __init__( self, sms_initial):
-        self.__sms = sms_initial
-        if not self.__sms.sm():
-            self.__sms._sm_( self)
-            
+    def __init__( self, sms_table, sms_initial, sms_common_data):
+        self.__sms_table = sms_table
+        self.__sms_current = sms_initial
+        self.__sms_common_data = sms_common_data
+        
+        self.__sms_current.open( self.__sms_common_data)
         return
 
     def execute( self):
-        self.__sms.execute()
+        self.__sms_current.execute()
+        try:
+            for method in self.__sms_table[ self.__sms_current]:
+                if method():
+                    self.__sms_current.close()
+                                                    # Close this state
+                    self.__sms_current = self.__sms_table[ self.__sms_current][ method]
+                                                    # Get the next state and set 
+                                                    #   it as the (new) current one
+                    self.__sms_current.open( self.__sms_common_data)
+                                                    # Open the new current state
+                    break
+                
+        except KeyError as e:
+            UsrEventLog().log_error( e, ThisName( self))
+            
         return self
     
-    def sms( self, arg=None):
-        if arg is None:
-            return self.__sms
-        
-        self.__sms = arg
-        return self
-
+    def sms_current( self):
+        return self.__sms_current
+    
 
 class SMState(metaclass=Singleton):
 
-    def __init__( self, sms):
-        self.__sm = sms.sm() if sms else None
+    def __init__( self):
+        self.__common = None
+        self.__is_open = False
         return
 
+    def close( self):
+        """Close the state.
+        
+        May be overridden, but doesn't need to be.
+        """
+        assert self.__is_open
+        self.__is_open = False
+        return
+    
     @abc.abstractmethod
     def execute( self):
-        pass
+        assert self.__is_open
 
-    @abc.abstractmethod
-    def is_condition_met( self):
-        pass
-
-    def select( self):
-        self.sm().sms( self)
-
-    def sm( self):
-        return self.__sm
-    
-    def _sm_( self, sm):
-        self.__sm = sm
+    def open( self, common):
+        """Open the state.
+        
+        May be overridden, but doesn't need to be.
+        
+        In case, the overriding method needs to call this class' method!
+        """
+        self.__common = common
+        self.__is_open = True
         return self
     
+    def common( self):
+        return self.__common
     

@@ -132,7 +132,7 @@ class Variable:
         self.value( other.value()) # 2016-10-31: Changed from self.value( other)
 
     def __repr__( self):
-        return str( self.id())
+        return "%s: value=%s" % ( self.id(), self.value())
     
     def app2value( self, value):
         """Sollte von den Subclasses überschrieben werden!

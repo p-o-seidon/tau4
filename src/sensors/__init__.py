@@ -397,6 +397,9 @@ class NaviSensorData(SensorData):
 
 class NaviSensorDataEmlidReach(SensorData):
     
+    """2DO: DELETE.
+    """
+    
     def __init__( self, *, sensor):
         super().__init__( sensor.id())
         

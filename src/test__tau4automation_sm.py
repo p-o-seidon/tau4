@@ -23,8 +23,11 @@
 from __future__ import division
 
 import logging; _Logger = logging.getLogger()
+import socket
 
 import tau4
+from tau4 import ThisName
+from tau4.datalogging import UsrEventLog
 import time
 import unittest
 
@@ -35,48 +38,44 @@ class _SMStates:
 
     class Idle(SMState):
         
-        def __init__( self, sms):
-            super().__init__( sms)
+        def __init__( self):
+            super().__init__()
             return
 
         def execute( self):
-            if _SMStates.Ready( self).is_condition_met():
-                _SMStates.Ready( self).select()
-                return
-
             return
         
-
+        def is_button_1_pressed( self):
+            return True
+            
+        def is_button_2_pressed( self):
+            return False
+                    
+                
     class Finished(SMState):
         
-        def __init__( self, sms):
-            super().__init__( sms)
+        def __init__( self):
+            super().__init__()
             return
         
         def execute( self):
             pass
 
-        def is_condition_met( self):
-            return True
-
 
     class Ready(SMState):
 
-        def __init__( self, sms):
-            super().__init__( sms)
+        def __init__( self):
+            super().__init__()
             self.__time_created = time.time()
             return
         
-        def is_condition_met( self):
-            return time.time() - self.__time_created > 1
-        
         def execute( self):
-            if _SMStates.Finished( self).is_condition_met():
-                _SMStates.Finished( self).select()
-                return
-
             return
-
+        
+        def is_timeout( self):
+            is_timeout = time.time() - self.__time_created > 1.5
+            return is_timeout
+ 
 
 class _TESTCASE__SM(unittest.TestCase):
 
@@ -85,19 +84,136 @@ class _TESTCASE__SM(unittest.TestCase):
         """
         print()
         
-        sm = SM( _SMStates.Idle( None))
+        _SMSTable = {\
+            _SMStates.Idle(): \
+                {\
+                    _SMStates.Idle().is_button_1_pressed: _SMStates.Ready(),
+                    _SMStates.Idle().is_button_2_pressed: _SMStates.Finished()
+                },
+   
+            _SMStates.Ready():
+                { _SMStates.Ready().is_timeout: _SMStates.Finished()},
+            
+            _SMStates.Finished():
+                { lambda: True: _SMStates.Finished()}
+        }
+
+        sm = SM( _SMSTable, _SMStates.Idle())
         t = time.time()
         while time.time() - t < 2:
-            print( "Current state = " + sm.sms().__class__.__name__)
+            print( "Current state = " + sm.sms_current().__class__.__name__)
             sm.execute()
             time.sleep( 0.100)
             
-        self.assertIs( sm.sms(), _SMStates.Finished( None))
+        self.assertIs( sm.sms_current(), _SMStates.Finished())
 
         return
 
 
 _Testsuite = unittest.makeSuite( _TESTCASE__SM)
+
+
+class _SMSStatesEmlidReach:
+    
+    class Idle(SMState):
+        
+        def execute( self):
+            return
+        
+        def is_enabled( self):
+            return True
+
+
+    class Connecting(SMState):
+
+        def __init__( self):
+            super().__init__()
+            
+            self.__ip_addr, self.__ip_portnbr = "10.0.0.13", 1962
+            self.__is_error = False
+            self.__is_open = False
+            return
+        
+        def execute( self):
+            try:
+                self.__socket = socket.socket( socket.AF_INET, socket.SOCK_STREAM)
+                self.__socket.settimeout( 10)
+                self.__socket.connect( (self.__ip_addr, self.__ip_portnbr))
+                self.__is_open = True
+                
+            except socket.timeout as e:
+                UsrEventLog().log_error( "Cannot connect to navi: '%s'!" % e, ThisName( self))
+                
+            except ConnectionRefusedError as e:
+                UsrEventLog().log_error( "Cannot connect to navi: '%s'!" % e, ThisName( self))
+                self.__is_error = True
+                
+            except OSError as e:
+                UsrEventLog().log_error( "Cannot connect to navi: '%s'!" % e, ThisName( self))
+                self.__is_error = True
+                
+            return self
+        
+        def is_connected( self):
+            return self.__is_open
+
+        def is_error( self):
+            return self.__is_error
+
+
+    class Connected(SMState):
+        
+        def execute( self):
+            return
+        
+        def is_disconnected( self):
+            return True
+
+
+    class Error(SMState):
+        
+        def execute( self):
+            return
+        
+        def is_ackned( self):
+            return True
+
+
+class _TESTCASE__EMlidREach(unittest.TestCase):
+
+    def test( self):
+        """
+        """
+        print()
+
+        _SMSTable = {\
+            _SMSStatesEmlidReach.Idle():\
+                { _SMSStatesEmlidReach.Idle().is_enabled: _SMSStatesEmlidReach.Connecting()},
+                
+            _SMSStatesEmlidReach.Connecting():\
+                {\
+                    _SMSStatesEmlidReach.Connecting().is_connected: _SMSStatesEmlidReach.Connected(),
+                    _SMSStatesEmlidReach.Connecting().is_error: _SMSStatesEmlidReach.Error()
+                },
+                
+            _SMSStatesEmlidReach.Connected():\
+                { _SMSStatesEmlidReach.Connected().is_disconnected: _SMSStatesEmlidReach.Connecting()},
+
+            _SMSStatesEmlidReach.Error():\
+                { _SMSStatesEmlidReach.Error().is_ackned: _SMSStatesEmlidReach.Idle()},
+        }
+            
+        sm = SM( _SMSTable, _SMSStatesEmlidReach.Idle())
+        t = time.time()
+        while time.time() - t < 2:
+            print( "Current state = " + sm.sms_current().__class__.__name__)
+            sm.execute()
+            time.sleep( 0.100)
+            
+        return
+
+
+_Testsuite.addTest( unittest.makeSuite( _TESTCASE__EMlidREach))
 
 
 class _TESTCASE__(unittest.TestCase):

@@ -25,6 +25,7 @@ from __future__ import division
 import logging; _Logger = logging.getLogger()
 
 import tau4
+from tau4.mathe.linalg import T3D
 from tau4.sensors import gps, IRS, Locator, navi, Sensors2, SensorSpecDataIRS, SensorSpecDataUSS, USS
 import time
 import unittest
@@ -250,6 +251,32 @@ _Testsuite.addTest( unittest.makeSuite( _TESTCASE__))
 
 
 def _lab_():
+    def tau4s( tau4pc):
+        print( tau4pc.client().wP())
+        
+    sensor = gps.EmlidReachGPS( id=-1, ip_addr="192.168.42.0", ip_portnbr=1962, rT=T3D.FromEuler())
+    sensor.reg_tau4s_on_modified( tau4s)
+    t = time.time()
+    while True:
+        sensor.execute()
+        print( "State: '%s'. " % sensor._sm_().sms_current().__class__.__name__)
+                                        # Only a GPS can do this.
+
+    return
+
+
+def _lab2_():
+    def tau4s( tau4pc):
+        print( tau4pc.client().wP())
+        
+    sensor = navi.NavSys( id=-1, gps=gps.EmlidReachGPS( id=-1, ip_addr="192.168.42.0", ip_portnbr=1962, rT=T3D.FromEuler()))
+    sensor.reg_tau4s_on_modified( tau4s)
+    t = time.time()
+    while True:
+        sensor.execute()
+        print( "The navisys' current state is '%s'. " % sensor.statename())
+                                        # Only a GPS can do this.
+
     return
 
 
@@ -258,8 +285,9 @@ def _Test_():
 
 
 if __name__ == '__main__':
-    _Test_()
-    _lab_()
+    #_Test_()
+    #_lab_()
+    _lab2_()
     input( u"Press any key to exit...")
 
 

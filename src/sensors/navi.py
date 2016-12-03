@@ -20,7 +20,9 @@
 #   along with tau4. If not, see <http://www.gnu.org/licenses/>.
 
 from math import *
+from tau4.mathe.linalg import T3D, Vector3
 from tau4.sensors import Locator, Sensor3
+from tau4.sweng import PublisherChannel
 
 
 class NavSys(Sensor3):
@@ -41,6 +43,7 @@ class NavSys(Sensor3):
         super().__init__( id, None, None, gps.rT())
         
         self.__gps = gps
+        self.__gps.reg_tau4s_on_modified( lambda tau4pc, self=self: self._tau4p_on_modified_())
         return
 
     ############################################################################
@@ -90,15 +93,29 @@ class NavSys(Sensor3):
         return self
     
     def rPm( self):
+        """Position of the measured thing (here it is the position) relative to the rack {R}.
+        """
         return self._gps_().rPm()
     
     def sPm( self):
+        """Position of the measured thing (here it is the position) relative to the sensor {S} itself.
+        """
         return self._gps_().sPm()
     
+    def satellite_count( self):
+        return self._gps_().satellite_count()
+    
+    def statename( self):
+        return self._gps_().statename()
+    
     def wP( self):
+        """Position of the measured thing (here it is the position) relative to the world {W}.
+        """
         return self._gps_().wP()
     
     def wXY( self):
+        """2D coordinates of the position of the measured thing (here it is the position) relative to the world {W}.
+        """
         return self.wP().xy()
     
         
@@ -106,4 +123,38 @@ class NavSys(Sensor3):
     ### P R O T E C T E D
     def _gps_( self):
         return self.__gps
+    
+
+class _NaviSysReading:
+    
+    def __init__( self, data, time):
+        self._data = data
+        self.__time = time
+        return
+    
+    def time( self):
+        return self.__time
+    
+
+class NaviSysReadingFrame:
+    
+    def __init__( self, T, time):
+        super().__init__( T, time)
+        assert isinstance( self._data, T3D)
+        return
+    
+    def T( self):
+        return self._data
+        
+
+class NaviSysReadingPosition:
+    
+    def __init__( self, P, time):
+        super().__init__( P, time)
+        assert isinstance( self._data, Vector3)
+        return
+    
+    def P( self):
+        return self._data
+        
     
