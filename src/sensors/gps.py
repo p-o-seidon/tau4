@@ -36,6 +36,8 @@ from tau4.mathe.linalg import T3D, Vector3
 from tau4.sensors import Locator, Sensor3
 from tau4.sweng import PublisherChannel, Singleton
 
+import time
+
 
 class EmlidReachSettings(metaclass=Singleton):
     
@@ -43,6 +45,7 @@ class EmlidReachSettings(metaclass=Singleton):
         self.__fv_ip_addr = flex.VariableDeMoPe( id="emlid.reach.ip_addr", value="192.168.42.1", label="EMLID Reach IP Addr", dim="", dirname="./")
         flex.Variable.Store( self.__fv_ip_addr.id(), self.__fv_ip_addr)
                                         # Im Objektspeicher speichern
+        self.__fv_waiting_period_after_disconection = flex.VariableDeMoPe( id="emlid.reach.waiting_period_after_disconection", value=3, label="waiting period after disconection", dim="", dirname="./")
         self.restore()
         return
     
@@ -66,6 +69,9 @@ class EmlidReachSettings(metaclass=Singleton):
     def store( self):
         self.__fv_ip_addr.store()
         return
+    
+    def waiting_period_after_disconection( self):
+        return self.__fv_waiting_period_after_disconection.value()
     
     
 class EmlidReachFinder:
@@ -158,7 +164,12 @@ class EmlidReachGPS(Sensor3):
                 
                 _SMStates.GPSConnectedAndReceiving(): \
                     { \
-                        _SMStates.GPSConnectedAndReceiving().is_disconnected: _SMStates.GPSConnecting(),
+                        _SMStates.GPSConnectedAndReceiving().is_disconnected: _SMStates.GPSDisconnected(),
+                    },
+                    
+                _SMStates.GPSDisconnected(): \
+                    { \
+                        _SMStates.GPSDisconnected().exitcondition_waiting_period_is_over: _SMStates.GPSConnecting(),
                     },
                     
                 _SMStates.GPSError(): \
@@ -181,7 +192,7 @@ class EmlidReachGPS(Sensor3):
         return self.__fv_default
     
     def read( self):
-        return self.bP()
+        return self.rTm()
     
     def reset( self):
         pass
@@ -399,6 +410,10 @@ class _SMStates:
             
             self._tau4p_on_data = PublisherChannel.Synch( self)
             return
+        
+        def close( self):
+            super().close()
+            return
                 
         def execute( self):
             try:
@@ -425,10 +440,11 @@ class _SMStates:
                     
                     self._tau4p_on_data()
                     
+                    self.common()._time_connection_stable = time.time()
+
                 else:
                     self.status().to_nok()
                     UsrEventLog().log_error( "Didn't receive data, close socket now!", ThisName( self))
-                    self._close_()
                 
             except ConnectionResetError as e:
                 self.status().to_nok()
@@ -442,6 +458,30 @@ class _SMStates:
         
         def is_disconnected( self):
             return self.status().is_nok()
+        
+        def open( self, *args):
+            super().open( *args)
+            return
+                 
+        
+        
+    class GPSDisconnected(_SMState):
+        
+        def open( self, *args):
+            super().open( *args)
+            self.common()._time_connection_lost = time.time()
+            UsrEventLog().log_warning( \
+                "Will wait for %d s before trying to connect again." % EmlidReachSettings().waiting_period_after_disconection(), 
+                ThisName( self)
+            )
+            return
+            
+        def exitcondition_waiting_period_is_over( self):
+            exitcondition_waiting_period_is_over = time.time() - self.common()._time_connection_lost > EmlidReachSettings().waiting_period_after_disconection()
+            if exitcondition_waiting_period_is_over:
+                UsrEventLog().log_warning( "Going to connect again.", ThisName( self))
+
+            return exitcondition_waiting_period_is_over
     
     
     class GPSConnecting(_SMState):

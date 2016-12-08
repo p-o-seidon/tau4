@@ -24,6 +24,7 @@ import logging; _Logger = logging.getLogger()
 
 import collections
 import statistics
+import sys
 
 
 class Ringbuffer:
@@ -82,5 +83,9 @@ class RinbufferStatistix(RingbufferTyped):
         return statistics.median( self.elems())
     
     def stddev( self):
-        return statistics.stdev( self.elems())
+        try:
+            return statistics.stdev( self.elems())
+        
+        except statistics.StatisticsError:
+            return sys.float_info.max
     stdev = stddev

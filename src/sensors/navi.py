@@ -23,6 +23,7 @@ from math import *
 
 from tau4 import ThisName
 from tau4.datalogging import UsrEventLog
+from tau4.data import buffers
 from tau4.mathe.linalg import T3D, Vector3
 from tau4.sensors import Locator, Sensor3
 from tau4.sweng import PublisherChannel
@@ -47,6 +48,11 @@ class NavSys(Sensor3):
         
         self.__gps = gps
         self.__gps.reg_tau4s_on_modified( lambda tau4pc, self=self: self._tau4p_on_modified_())
+        
+        self.__statistixbuffer_wX = buffers.RinbufferStatistix( 10)
+        self.__statistixbuffer_wY = buffers.RinbufferStatistix( 10)
+        self.__statistixbuffer_bX = buffers.RinbufferStatistix( 10)
+        self.__statistixbuffer_bY = buffers.RinbufferStatistix( 10)
         
         UsrEventLog().log_info( self.__class__.__name__ + " is created. ", ThisName( self))
         return
@@ -85,6 +91,14 @@ class NavSys(Sensor3):
     
     def execute( self):
         self._gps_().execute()
+        
+        x, y = self.bP().xy()
+        self.__statistixbuffer_bX.elem( x)
+        self.__statistixbuffer_bY.elem( y)
+
+        x, y = self.wP().xy()
+        self.__statistixbuffer_wX.elem( x)
+        self.__statistixbuffer_wY.elem( y)
         return self
     
     def fv_default( self):
@@ -95,6 +109,18 @@ class NavSys(Sensor3):
     
     def read( self):
         return self._gps_().read()
+    
+    def meanvalue_bX( self):
+        return self.__statistixbuffer_bX.mean()
+
+    def meanvalue_bY( self):
+        return self.__statistixbuffer_bY.mean()
+    
+    def meanvalue_wX( self):
+        return self.__statistixbuffer_wX.mean()
+
+    def meanvalue_wY( self):
+        return self.__statistixbuffer_wY.mean()
     
     def reset( self):
         self._gps_().reset()
@@ -128,6 +154,19 @@ class NavSys(Sensor3):
     def status( self):
         return self._gps_().status()
     
+
+    def stdev_bX( self):
+        return self.__statistixbuffer_bX.stdev()
+
+    def stdev_bY( self):
+        return self.__statistixbuffer_bY.stdev()
+
+    def stdev_wX( self):
+        return self.__statistixbuffer_wX.stdev()
+
+    def stdev_wY( self):
+        return self.__statistixbuffer_wY.stdev()
+
     def wP( self):
         """Position of the measured thing (here it is the position) relative to the world {W}.
         """
