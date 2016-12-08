@@ -134,8 +134,8 @@ class _TESTCASE__RingbufferStatistix(unittest.TestCase):
         elemcount_max = len( elems)
         rb = buffers.RinbufferStatistix( elemcount_max, elems=elems)
         
-        median = rb.median()
         mean = rb.mean()
+        median = rb.median()
         print( "Median = %f; mean = %f. " % (rb.median(), rb.mean()))
         self.assertTrue( rb.median() > rb.mean())
         
