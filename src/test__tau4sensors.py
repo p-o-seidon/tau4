@@ -23,10 +23,11 @@
 from __future__ import division
 
 import logging; _Logger = logging.getLogger()
+from math import *
 
 import tau4
-from tau4.mathe.linalg import T3D
-from tau4.sensors import gps, IRS, Locator, navi, Sensors2, SensorSpecDataIRS, SensorSpecDataUSS, USS
+from tau4.mathe.linalg import T3D, Vector3
+from tau4.sensors import gps, IRS, IRSDummy, Locator, navi, Rangers, Sensors2, SensorSpecDataIRS, SensorSpecDataUSS, USS
 import time
 import unittest
 
@@ -238,6 +239,78 @@ Position of rack rel {B}:               %s
 _Testsuite = unittest.makeSuite( _TESTCASE__Sensors)
 
 
+class _TESTCASE__Rangers(unittest.TestCase):
+
+    def test( self):
+        """
+        """
+        print()
+    
+        ### Create the container being a Singleton
+        #
+        sensors = Sensors2()
+    
+        ### We work with some IRS sitting on a mobile robot.
+        #
+        #   The y-axis of the robot's frame points to its front, the x-axis as 
+        #   a consequence to its right hand side.
+        #
+        #   The frame sits in the robot's centre.
+        #
+        sensors.add_group( id_group="rangers")
+    
+        sensor = IRSDummy( id="irs.11:00", specs_io=None, specs_data=SensorSpecDataIRS( 42), rT=tau4.mathe.linalg.T3DFromEuler( 0.250, 0.500, 0, radians( +15), 0, 0))
+        sensors.add_sensor( id_group="rangers", sensor=sensor)
+    
+        sensor = IRSDummy( id="irs.13:00", specs_io=None, specs_data=SensorSpecDataIRS( 42), rT=tau4.mathe.linalg.T3DFromEuler( -0.250, 0.500, 0, radians( -15), 0, 0))
+        sensors.add_sensor( id_group="rangers", sensor=sensor)
+    
+        ### Cal. the transform of an obstacle relative to the robot {R}
+        #
+        for sensor in sensors( id_group="rangers"):
+            sensor.execute()
+
+        sensorLHS = sensors( id_sensor="irs.11:00"); self.assertIs( sensorLHS, sensors.sensor( "irs.11:00"))
+        sensorRHS = sensors( id_sensor="irs.13:00"); self.assertIs( sensorRHS, sensors.sensor( "irs.13:00"))
+
+        ### Mock distances and check alpha of the resultant poses (obstacle absent)
+        #
+        sensorLHS._distance_( 0.800)
+        sensorRHS._distance_( 0.800)
+
+        rangers = sensors( id_group="rangers")
+        P = Vector3()
+        for sensor in rangers:
+            rPo = sensor.rTo().P()
+            P += rPo
+            
+        alpha = atan2( P.y(), P.x())            
+        self.assertAlmostEqual( radians( 90), alpha)
+
+        ### Mock distances and check alpha of the resultant poses (obstacle present)
+        #
+        sensorLHS._distance_( 0.400)
+                                        # Obstacle approachng on the lhs
+        sensorRHS._distance_( 0.800)
+
+        rangers = sensors( id_group="rangers")
+        P = Vector3()
+        for sensor in rangers:
+            P += sensor.rTo().P()
+            
+        alpha = atan2( P.y(), P.x())
+        self.assertAlmostEqual( Sensors2.rAlpha( rangers), alpha)
+        self.assertTrue( degrees( alpha) < 90)
+                                        # Vektor zeigt nach rechts, wenn das 
+                                        #   Hindernis von links kommt
+        self.assertAlmostEqual( 87.25481647, degrees( alpha))
+
+        return
+
+
+_Testsuite.addTest( unittest.makeSuite( _TESTCASE__Rangers))
+
+
 class _TESTCASE__(unittest.TestCase):
 
     def test( self):
@@ -259,7 +332,7 @@ def _lab_():
     t = time.time()
     while True:
         sensor.execute()
-        print( "State: '%s'. " % sensor._sm_().sms_current().__class__.__name__)
+        print( "State: '%s'. " % sensor._sm_().smstate_current().__class__.__name__)
                                         # Only a GPS can do this.
 
     return
@@ -285,9 +358,9 @@ def _Test_():
 
 
 if __name__ == '__main__':
-    #_Test_()
+    _Test_()
     #_lab_()
-    _lab2_()
+    #_lab2_()
     input( u"Press any key to exit...")
 
 

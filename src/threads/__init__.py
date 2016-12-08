@@ -66,11 +66,20 @@ class Thread(threading.Thread):
     
 class Cycler(threading.Thread):
     
-    def __init__( self, *, cycletime, idata, is_daemon=True, startdelay=0):
+    """
+
+    :param  cycletime:
+        Cycle time in seconds.
+        
+    :param  udata:
+        User data.
+    """
+    
+    def __init__( self, *, cycletime, udata, is_daemon=True, startdelay=0):
         super().__init__( group=None, target=None, name=None, daemon=is_daemon)
 
         self.__cycletime = cycletime
-        self.__idata = idata
+        self.__udata = udata
         self.__startdelay = startdelay
         
         self.__is_super_started = False
@@ -164,7 +173,7 @@ class Cycler(threading.Thread):
         except Empty:
             return (None, False)
     
-    def _run_( self, *, idata):
+    def _run_( self, *, udata):
         raise NotImplementedError( "This class cannot handle an app's callable, it must be subclassed and this method must be overridden in the subclass!")
     
     def run( self):
@@ -181,7 +190,7 @@ class Cycler(threading.Thread):
             t_cyclestart = time.time()
             timeout = self.cycletime() - (dt_admin + dt_user)
             if timeout < 0:
-                self._tau4p_on_cycletime_underflow_( idata=self.__idata)
+                self._tau4p_on_cycletime_underflow_( idata=self.__udata)
                 timeout = 0
                 
             request, is_ackn_requested = self._request_from_app_( timeout=timeout)
@@ -189,7 +198,7 @@ class Cycler(threading.Thread):
             dt_admin = time.time()
             if request == self._START_REQUEST:
                 if not is_running:
-                    self._tau4p_on_START_REQUEST_( idata=self.__idata)
+                    self._tau4p_on_START_REQUEST_( idata=self.__udata)
                     is_running = True
                     if is_ackn_requested:
                         self._ackn_to_app_()
@@ -199,7 +208,7 @@ class Cycler(threading.Thread):
                 
             elif request == self._STOP_REQUEST:
                 if is_running:
-                    self._tau4p_on_STOP_REQUEST_( idata=self.__idata)
+                    self._tau4p_on_STOP_REQUEST_( idata=self.__udata)
                     is_running = False
                     if is_ackn_requested:
                         self._ackn_to_app_()
@@ -208,7 +217,7 @@ class Cycler(threading.Thread):
                     self._tau4p_on_START_STOP_REQUEST_mismatch_()
                     
             elif request == self._SHUTDOWN_REQUEST:
-                self._tau4p_on_SHUTDOWN_REQUEST_( idata=self.__idata)
+                self._tau4p_on_SHUTDOWN_REQUEST_( idata=self.__udata)
                 is_running = False
                 if is_ackn_requested:
                     self._ackn_to_app_()
@@ -220,7 +229,7 @@ class Cycler(threading.Thread):
                                             #   Request Handling gebraucht
             dt_user = time.time()
             if is_running:
-                self._run_( idata=self.__idata)
+                self._run_( udata=self.__udata)
                                                 # Auf   U s e r   warten.
             self._tau4p_on_cycle_end_()
                                             # Auf   U s e r   warten.
@@ -230,6 +239,13 @@ class Cycler(threading.Thread):
         return
     
     def start( self, request_ackn=False):
+        """Send a start request to the thread's body.
+        
+        You may start - stop - start - stop - etc. a thread and eventually 
+        shutdown a thread. This means, that a stop plays the role of a pause 
+        and a start plays the role of a resume - except for the first time 
+        where it is a real start(up of the thread).
+        """
         with self.__lock:
             if not self.__is_super_started:
                 super().start()
@@ -238,9 +254,23 @@ class Cycler(threading.Thread):
             return self._request_start_( request_ackn)
     
     def stop( self, request_ackn=False):
+        """Send a stop request to the thread's body.
+        
+        You may start - stop - start - stop - etc. a thread and eventually 
+        shutdown a thread. This means, that a stop plays the role of a pause 
+        and a start plays the role of a resume - except for the first time 
+        where it is a real start(up of the thread).
+        """
         return self._request_stop_( request_ackn)
     
     def shutdown( self, request_ackn=False):
+        """Send a shutdown request to the thread's body.
+        
+        You may start - stop - start - stop - etc. a thread and eventually 
+        shutdown a thread. This means, that a stop plays the role of a pause 
+        and a start plays the role of a resume - except for the first time 
+        where it is a real start(up of the thread).
+        """
         return self._request_shutdown_( request_ackn)
 
     

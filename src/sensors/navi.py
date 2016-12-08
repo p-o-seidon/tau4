@@ -20,10 +20,13 @@
 #   along with tau4. If not, see <http://www.gnu.org/licenses/>.
 
 from math import *
+
+from tau4 import ThisName
+from tau4.datalogging import UsrEventLog
 from tau4.mathe.linalg import T3D, Vector3
 from tau4.sensors import Locator, Sensor3
 from tau4.sweng import PublisherChannel
-
+from tau4 import threads
 
 class NavSys(Sensor3):
     
@@ -44,6 +47,8 @@ class NavSys(Sensor3):
         
         self.__gps = gps
         self.__gps.reg_tau4s_on_modified( lambda tau4pc, self=self: self._tau4p_on_modified_())
+        
+        UsrEventLog().log_info( self.__class__.__name__ + " is created. ", ThisName( self))
         return
 
     ############################################################################
@@ -85,6 +90,9 @@ class NavSys(Sensor3):
     def fv_default( self):
         return self._gps_().fv_default()
     
+    def fv_name_smstate( self):
+        return self._gps_().sm().fv_name_state_executed()
+    
     def read( self):
         return self._gps_().read()
     
@@ -97,6 +105,14 @@ class NavSys(Sensor3):
         """
         return self._gps_().rPm()
     
+    def rTm( self):
+        """Position of the measured thing (here it is the position) relative to the rack {R}.
+        """
+        return self._gps_().rTm()
+    
+    def sm( self):
+        return self._gps_().sm()
+    
     def sPm( self):
         """Position of the measured thing (here it is the position) relative to the sensor {S} itself.
         """
@@ -106,7 +122,11 @@ class NavSys(Sensor3):
         return self._gps_().satellite_count()
     
     def statename( self):
+        assert self.sm().fv_smstate_name().value() == self._gps_().statename()
         return self._gps_().statename()
+    
+    def status( self):
+        return self._gps_().status()
     
     def wP( self):
         """Position of the measured thing (here it is the position) relative to the world {W}.
@@ -123,8 +143,30 @@ class NavSys(Sensor3):
     ### P R O T E C T E D
     def _gps_( self):
         return self.__gps
-    
 
+
+class NavSysThreaded(NavSys, threads.Cycler):
+
+    """Unlike to NavSys NavSysThreaded doesn't block the PLC upon troubles with the connection.
+    """
+
+    def __init__( self, id, gps, cycletime=1):
+        NavSys.__init__( self, id, gps)
+        threads.Cycler.__init__( self, cycletime=cycletime, udata=0)
+
+        self.start()
+        return
+    
+    def execute( self):
+        """In the threaded version a user call to execute doesn't need to have an effect, because the thread itself calls the execute method of the base class.
+        """
+        return
+    
+    def _run_( self, udata):
+        super().execute()
+        return
+    
+    
 class _NaviSysReading:
     
     def __init__( self, data, time):

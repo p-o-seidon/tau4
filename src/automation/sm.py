@@ -22,6 +22,7 @@
 import abc
 
 from tau4 import ThisName
+from tau4.data import flex
 from tau4.datalogging import UsrEventLog
 from tau4.sweng import Singleton
 
@@ -41,10 +42,13 @@ class SM:
         self.__sms_common_data = sms_common_data
         
         self.__sms_current.open( self.__sms_common_data)
+        
+        self.__fv_smstate_name = flex.VariableDeMo( id=-1, value="???", label="SM State")        
         return
 
     def execute( self):
         self.__sms_current.execute()
+        self.__fv_smstate_name.value( self.__sms_current.name())
         try:
             for method in self.__sms_table[ self.__sms_current]:
                 if method():
@@ -62,7 +66,10 @@ class SM:
             
         return self
     
-    def sms_current( self):
+    def fv_smstate_name( self):
+        return self.__fv_smstate_name
+    
+    def smstate_current( self):
         return self.__sms_current
     
 
@@ -85,6 +92,9 @@ class SMState(metaclass=Singleton):
     @abc.abstractmethod
     def execute( self):
         assert self.__is_open
+        
+    def name( self):
+        return self.__class__.__name__
 
     def open( self, common):
         """Open the state.

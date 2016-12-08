@@ -32,17 +32,40 @@ from tau4.automation.sm import SM, SMState
 from tau4.data import flex
 from tau4.datalogging import SysEventLog, UsrEventLog
 from tau4.mathe.linalg import T3D, Vector3
-from tau4.sensors import Locator, NaviStatus, Sensor3
+#from tau4.sensors import Locator, GPSStatus, Sensor3
+from tau4.sensors import Locator, Sensor3
 from tau4.sweng import PublisherChannel, Singleton
 
 
 class EmlidReachSettings(metaclass=Singleton):
     
     def __init__( self):
+        self.__fv_ip_addr = flex.VariableDeMoPe( id="emlid.reach.ip_addr", value="192.168.42.1", label="EMLID Reach IP Addr", dim="", dirname="./")
+        flex.Variable.Store( self.__fv_ip_addr.id(), self.__fv_ip_addr)
+                                        # Im Objektspeicher speichern
+        self.restore()
         return
     
+    def ip_addr( self, arg=None):
+        if arg is None:
+            return self.__fv_ip_addr.value()
+        
+        self.__fv_ip_addr.value( arg)
+        return self
+    
+    def ip_portnbr( self):
+        return 1962
+    
+    def restore( self):
+        self.__fv_ip_addr.restore()
+        return self
+    
     def socket_timeout( self):
-        return 3
+        return 5
+   
+    def store( self):
+        self.__fv_ip_addr.store()
+        return
     
     
 class EmlidReachFinder:
@@ -111,37 +134,37 @@ class EmlidReachGPS(Sensor3):
         
         self.__fv_default = flex.VariableDeClMo( value=0.0, label="Distance from wPorg", dim="m")
         
-        _SMStates._Common()._fv_ip_addr.value( ip_addr).store()
-        _SMStates._Common()._fv_ip_portnbr.value( ip_portnbr).store()
-        _SMStates.ConnectedAndReceiving()._tau4p_on_data += self._tau4s_on_data_
+#        _SMStates._Common()._fv_ip_addr.value( ip_addr).store()
+#        _SMStates._Common()._fv_ip_portnbr.value( ip_portnbr).store()
+        _SMStates.GPSConnectedAndReceiving()._tau4p_on_data += self._tau4s_on_data_
         self.__sm = SM(\
             {\
-                _SMStates.Idle(): \
+                _SMStates.GPSIdle(): \
                     { \
-                        lambda: True: _SMStates.Connecting(),
+                        lambda: True: _SMStates.GPSConnecting(),
                     },
                     
-                _SMStates.Connecting(): \
+                _SMStates.GPSConnecting(): \
                     { \
-                        _SMStates.Connecting().is_connected: _SMStates.ConnectedAndReceiving(),
-                        _SMStates.Connecting().is_error: _SMStates.Finding(),
+                        _SMStates.GPSConnecting().is_connected: _SMStates.GPSConnectedAndReceiving(),
+                        _SMStates.GPSConnecting().is_error: _SMStates.GPSFinding(),
                     },
                 
-                _SMStates.Finding(): \
+                _SMStates.GPSFinding(): \
                     { \
-                        _SMStates.Finding().is_found: _SMStates.Connecting(),
-                        _SMStates.Finding().is_error: _SMStates.Error(),
+                        _SMStates.GPSFinding().is_found: _SMStates.GPSConnecting(),
+                        _SMStates.GPSFinding().is_error: _SMStates.GPSError(),
                     },
                 
-                _SMStates.ConnectedAndReceiving(): \
+                _SMStates.GPSConnectedAndReceiving(): \
                     { \
-                        _SMStates.ConnectedAndReceiving().is_disconnected: _SMStates.Connecting(),
+                        _SMStates.GPSConnectedAndReceiving().is_disconnected: _SMStates.GPSConnecting(),
                     },
                     
-                _SMStates.Error(): \
-                    { lambda: True: _SMStates.Idle()},
+                _SMStates.GPSError(): \
+                    { lambda: True: _SMStates.GPSIdle()},
             },
-            _SMStates.Idle(),
+            _SMStates.GPSIdle(),
             _SMStates._Common()
         )
         return
@@ -166,16 +189,28 @@ class EmlidReachGPS(Sensor3):
     def rPm( self):
         """Position einer Messung bezüglich eines Racks (oder Roboters).
         
-        Diese Messung ann bedeuten:
+        Diese Messung kann bedeuten:
         -   Die Entfernung eines Hinderisses bei einem Ranger.
         -   Die Position eines GPS-Devices.
         """
         return self.rT()._P_()
     
+    def rTm( self):
+        """Frame of a measuremet relative to the rack or robot the sensor is mounted on.
+        
+        This measurement may mean:
+        -   The distance of an obstacle if the sensor is a ranger.
+        -   The pose of a GPS device.
+        """
+        return self.rT()
+    
     def satellite_count( self):
         return _SMStates._Common()._satellite_count
     
     def _sm_( self):
+        return self.__sm
+    
+    def sm( self):
         return self.__sm
     
     def sPm( self):
@@ -188,7 +223,7 @@ class EmlidReachGPS(Sensor3):
         return self.wP()
 
     def statename( self):
-        return self.__sm.sms_current().__class__.__name__
+        return self.__sm.smstate_current().__class__.__name__
     
     def status( self):
         return _SMStates._Common()._fv_status
@@ -208,6 +243,37 @@ class EmlidReachGPS(Sensor3):
     ###
     
 
+class GPSStatus(flex.VariableDeClMo):
+
+    """Folgende Status sind möglich: NOK (= 0), O (= 1).    
+    """
+    
+    def __init__( self, value=0):
+        super().__init__( value=int( value), label="GPS Status", dim="", value_min=0, value_max=1)
+
+        return
+    
+    def __int__( self):
+        return self.value()
+    
+    def __str__( self):
+        return ("NOK", "OK")[ int( self.value())]
+    
+    def is_nok( self):
+        return int( self) == 0
+
+    def is_ok( self):
+        return int( self) == 1
+
+    def to_nok( self):
+        self.value( 0)
+        return self
+
+    def to_ok( self):
+        self.value( 1)
+        return self
+
+
 class Receiver:
     
     """ Übernimmt das Empfangen und Verarbeiten der Daten.
@@ -219,13 +285,15 @@ class Receiver:
         return
     
     def data( self, socket):
-        data = socket.recv( self.__buffersize*3)
-                                        # Wir holen mehr Daten, als die Mesage 
+        #buffersize_multiplier = 3
+        buffersize_multiplier = 2
+        data = socket.recv( self.__buffersize*buffersize_multiplier)
+                                        # Wir holen mehr Daten, als die Message 
                                         #   lang ist, um kein altes Zeug 
                                         #   weiterzuverarbeiten
         self.__datastr += data
         while not b"\n" in self.__datastr:
-            data = socket.recv( self.__buffersize*3)
+            data = socket.recv( self.__buffersize*buffersize_multiplier)
             if not data:
                 break
             
@@ -257,15 +325,8 @@ class _SMStates:
     class _Common(metaclass=Singleton):
         
         def __init__( self):
-            self._fv_ip_addr = flex.VariableDeMoPe( id="emlid.reach.ip_addr", value="10.0.0.13", label="IP Address", dim="", dirname="./")
-                                            # 2DO: dirname muss aus den Settings kommen.
-            self._fv_ip_addr.restore()
-            
-            self._fv_ip_portnbr = flex.VariableDeMoPe( id="emlid.reach.ip_portnbr", value=1962, label="Port #", dim="", dirname="./")
-            self._fv_ip_portnbr.restore()
-            
             self._fv_is_error = flex.VariableDeMo( id="emlid.reach.is_error", value=0, label="Error", dim="")
-                                            # 2DO: Have to merge this with the NaviStatus somehow.
+                                            # 2DO: Have to merge this with the GPSStatus somehow.
             self._is_open = False
             
             self._is_sensor_state_ok = False
@@ -276,9 +337,12 @@ class _SMStates:
                                            # Receive and process data.
             self._wP = Vector3()
             
-            self._fv_status = NaviStatus()
+            self._fv_status = GPSStatus()
             
             self._satellite_count = 0
+            
+            self._time_connection_lost = 0
+            self._time_connection_stable = 0
             return
         
         def wP( self):
@@ -307,6 +371,12 @@ class _SMStates:
         
         def status( self):
             return self.common()._fv_status
+    
+        def time_connection_found( self):
+            return self.common()._time_connection_found
+        
+        def time_connection_lost( self):
+            return self.common()._time_connection_lost
         
         def _tuple_to_ipaddr_( self, tuple):
             return ".".join( map( str, tuple))
@@ -315,7 +385,7 @@ class _SMStates:
             return self.common()._wP
         
     
-    class ConnectedAndReceiving(_SMState):
+    class GPSConnectedAndReceiving(_SMState):
         
         """We are conected and receiving.
         
@@ -362,11 +432,11 @@ class _SMStates:
                 
             except ConnectionResetError as e:
                 self.status().to_nok()
-                UsrEventLog().log_error( "'%s'!" % e, ThisName( self))
+                UsrEventLog().log_error( "Lost connection to navi: ConnectionResetError '%s'!" % e, ThisName( self))
         
             except socket.timeout as e:
                 self.status().to_nok()
-                UsrEventLog().log_error( "'%s'!" % e, ThisName( self))
+                UsrEventLog().log_error( "Lost connection to navi: '%s'!" % e, ThisName( self))
 
             return
         
@@ -374,7 +444,7 @@ class _SMStates:
             return self.status().is_nok()
     
     
-    class Connecting(_SMState):
+    class GPSConnecting(_SMState):
         
         """Nimmt die Verbindungsdaten aus einer flex.Varbl und versucht damit eine Verbindung zum Device herzustellen.
         """
@@ -388,11 +458,10 @@ class _SMStates:
                 try:
                     self.common()._socket = socket.socket( socket.AF_INET, socket.SOCK_STREAM)
                     self.common()._socket.settimeout( EmlidReachSettings().socket_timeout())
-                    self.common()._socket.connect( (self.common()._fv_ip_addr.value(), self.common()._fv_ip_portnbr.value()))
-                    print( ThisName( self) + "(): Connected to %s:%d. self.__socket.getpeername() == %s. " (self.common()._fv_ip_addr.value(), self.common()._fv_ip_portnbr.value(), self.common()._socket.getpeername()))
+                    self.common()._socket.connect( (EmlidReachSettings().ip_addr(), EmlidReachSettings().ip_portnbr()))
                     self.common()._receiver.data( self.common()._socket)
                                                     # Okay, we are connected, but can we receive?
-                    self.common()._fv_ip_addr.store()
+                    EmlidReachSettings().store()
                     self.common()._is_open = True
                     
                 except socket.timeout as e:
@@ -409,12 +478,16 @@ class _SMStates:
                                             
             else:
                 self.common()._is_open = True
-                self.common()._fv_ip_addr.store()
+                EmlidReachSettings().store()
                 
             return self
         
         def is_connected( self):
-            return self.common()._socket is not None and self.common()._is_open
+            is_connected = self.common()._socket is not None and self.common()._is_open
+            if is_connected:
+                UsrEventLog().log_info( "Connection to navi successful.", ThisName( self))
+                
+            return is_connected
     
         def is_error( self):
             return self.common()._fv_is_error.value() != 0
@@ -426,7 +499,7 @@ class _SMStates:
             return
         
     
-    class Error(_SMState):
+    class GPSError(_SMState):
         
         def execute( self):
             return
@@ -435,7 +508,7 @@ class _SMStates:
             return True  
     
 
-    class Idle(_SMState):
+    class GPSIdle(_SMState):
         
         def execute( self):
             return
@@ -444,7 +517,7 @@ class _SMStates:
             return True
     
     
-    class Finding(_SMState):
+    class GPSFinding(_SMState):
         
         """Netz nach Devices absuchen.
         """
@@ -456,44 +529,58 @@ class _SMStates:
             return
         
         def close( self):
-            """Schließen dieses States.
+            """Close the state.
             
-            Wir löschen hier keine Daten, die Ziel-States brauchen sie!
+            -   Store the ip address found
+            -   Don't reset any data as the next state may need them! If you need 
+                data to be rest upon entering this state, do that in open()!
             """
             super().close()
+
+            EmlidReachSettings().store()
             return self
         
         def execute( self):
-            ip_addr_tuple = self._ipaddr_to_tuple_( self.common()._fv_ip_addr.value())
-            ip_addr_tuple[ -1] += 1
-            if ip_addr_tuple[ -1] < 256:
+            ### Connect to te (valid) ip addr and store that ip address
+            #
+            UsrEventLog().log_info( "IP address tuple = '%s'. " % EmlidReachSettings().ip_addr(), ThisName( self))
+            self.common()._socket = self.__finder.socket( EmlidReachSettings().ip_addr(), EmlidReachSettings().ip_portnbr())
+                 
+            if self.common()._socket is None:
+                ### Increment the ip address
+                #
+                ip_addr_tuple = self._ipaddr_to_tuple_( EmlidReachSettings().ip_addr())
+                ip_addr_tuple[ -1] = (ip_addr_tuple[ -1] + 1) % 256
                 ip_addr = self._tuple_to_ipaddr_( ip_addr_tuple)
-                self.common()._fv_ip_addr.value( ip_addr)
-                print( "IP address tuple = '%s'. " % self.common()._fv_ip_addr.value())
-                self.common()._socket = self.__finder.socket( self.common()._fv_ip_addr.value(), self.common()._fv_ip_portnbr.value())
-                if self.common()._socket:
-                    print( "self.__finder.socket() == %s:%d. " % self.common()._socket.getpeername())
-                    
-                return
-            
-            ip_addr_tuple[ -1] = 0
-            self.common()._fv_is_error.value( 1)            
+                EmlidReachSettings().ip_addr( ip_addr)
+                UsrEventLog().log_info( "Incremented ip address. IP address tuple = '%s'. " % EmlidReachSettings().ip_addr(), ThisName( self))
+                
             return
         
         def is_error( self):
+            """2DO: Will never happen, which is - okay?
+            """
             return self.common()._fv_is_error.value()
 
         def is_found( self):
             is_found = self.common()._socket is not None
-            if is_found:
-                _42 = 42
-                
             return is_found
     
         def open( self, sm):
             super().open( sm)
             
+            ### Reset the error parameter
+            #
             self.common()._fv_is_error.value( 0)            
+
+            ### Make sure that the ip address is valid
+            #
+            ip_addr_tuple = self._ipaddr_to_tuple_( EmlidReachSettings().ip_addr())
+            ip_addr_tuple[ -1] = ip_addr_tuple[ -1] % 256
+                        # Just to be sure...
+            ip_addr = self._tuple_to_ipaddr_( ip_addr_tuple)
+            EmlidReachSettings().ip_addr( ip_addr)
+
             return
 
 

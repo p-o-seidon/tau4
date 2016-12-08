@@ -198,7 +198,7 @@ class PLC(Cycler, metaclass=abc.ABCMeta):
         Usage::
             2DO: Code aus iio hier her kopieren.
         """
-        super().__init__( cycletime=cycletime_plc, idata=None, is_daemon=is_daemon)
+        super().__init__( cycletime=cycletime_plc, udata=None, is_daemon=is_daemon)
         
         self.__jobs = []
         self.__jobindexes = dict( list( zip( [ job.id() for job in self.__jobs], list( range( len( self.__jobs))))))
@@ -255,7 +255,7 @@ class PLC(Cycler, metaclass=abc.ABCMeta):
     def operationmode( self):
         return self.__operationmode
         
-    def _run_( self, idata):
+    def _run_( self, udata):
         ### Alle Eingänge lesen
         #
         self._inps_execute_()

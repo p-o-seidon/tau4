@@ -51,11 +51,11 @@ class _TESTCASE__Cycler(unittest.TestCase):
                 
             
             def __init__( self):
-                super().__init__( cycletime=0.100, idata=self._Buffer(), is_daemon=True)
+                super().__init__( cycletime=0.100, udata=self._Buffer(), is_daemon=True)
             
-            def _run_( self, *, idata):
-                idata._Counter += 1
-                print( "Counter: %d. dt: %.3f." % (idata._Counter, idata.dt())), 
+            def _run_( self, *, udata):
+                udata._Counter += 1
+                print( "Counter: %d. dt: %.3f." % (udata._Counter, udata.dt())), 
                 return
             
             

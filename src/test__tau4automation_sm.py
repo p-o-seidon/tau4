@@ -98,14 +98,14 @@ class _TESTCASE__SM(unittest.TestCase):
                 { lambda: True: _SMStates.Finished()}
         }
 
-        sm = SM( _SMSTable, _SMStates.Idle())
+        sm = SM( _SMSTable, _SMStates.Idle(), None)
         t = time.time()
         while time.time() - t < 2:
-            print( "Current state = " + sm.sms_current().__class__.__name__)
+            print( "Current state = " + sm.smstate_current().__class__.__name__)
             sm.execute()
             time.sleep( 0.100)
             
-        self.assertIs( sm.sms_current(), _SMStates.Finished())
+        self.assertIs( sm.smstate_current(), _SMStates.Finished())
 
         return
 
@@ -203,10 +203,10 @@ class _TESTCASE__EMlidREach(unittest.TestCase):
                 { _SMSStatesEmlidReach.Error().is_ackned: _SMSStatesEmlidReach.Idle()},
         }
             
-        sm = SM( _SMSTable, _SMSStatesEmlidReach.Idle())
+        sm = SM( _SMSTable, _SMSStatesEmlidReach.Idle(), None)
         t = time.time()
         while time.time() - t < 2:
-            print( "Current state = " + sm.sms_current().__class__.__name__)
+            print( "Current state = " + sm.smstate_current().__class__.__name__)
             sm.execute()
             time.sleep( 0.100)
             
