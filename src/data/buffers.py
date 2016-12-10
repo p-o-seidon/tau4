@@ -88,4 +88,10 @@ class RinbufferStatistix(RingbufferTyped):
         
         except statistics.StatisticsError:
             return sys.float_info.max
-    stdev = stddev
+
+    def stdev( self):
+        try:
+            return statistics.stdev( self.elems())
+        
+        except statistics.StatisticsError:
+            return sys.float_info.max

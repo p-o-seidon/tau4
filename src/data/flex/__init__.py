@@ -959,6 +959,9 @@ class VarblCats(metaclass=Singleton):
         self.__varblcats = {}
         return
     
+    def varbcat( self, id):
+        return self.__varblcats[ varblcat.id()]
+    
     def varblcat_add( self, varblcat):
         if varblcat.id() in self.__varblcats.keys():
             raise KeyError( "VarblCat '%s' of type '%s' already exists in VarblCats. " % (varblcat.id(), varblcat.__class__.__name__))

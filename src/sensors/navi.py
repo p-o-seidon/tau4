@@ -20,7 +20,6 @@
 #   along with tau4. If not, see <http://www.gnu.org/licenses/>.
 
 from math import *
-import statistics
 import threading
 
 from tau4 import ThisName
@@ -46,21 +45,21 @@ class LockedRingbufferStatistix(buffers.RinbufferStatistix):
         
     def mean( self):
         with self.__lock:
-            return statistics.mean( self.elems())
+            return super().mean()
     
     def median( self):
         with self.__lock:
-            return statistics.median( self.elems())
+            return super().median()
     
     def stddev( self):
-        try:
-            with self.__lock:
-                return statistics.stdev( self.elems())
+        with self.__lock:
+            return super().stddev()
         
-        except statistics.StatisticsError:
-            return sys.float_info.max
-
-
+    def stdev( self):
+        with self.__lock:
+            return super().stdev()
+        
+        
 class NavSys(Sensor3):
     
     """GPS + Base
@@ -221,7 +220,7 @@ class NavSysThreaded(NavSys, threads.Cycler):
     """Unlike to NavSys NavSysThreaded doesn't block the PLC upon troubles with the connection.
     """
 
-    def __init__( self, id, gps, cycletime=1):
+    def __init__( self, id, gps, cycletime=2.5):
         NavSys.__init__( self, id, gps)
         threads.Cycler.__init__( self, cycletime=cycletime, udata=0)
 

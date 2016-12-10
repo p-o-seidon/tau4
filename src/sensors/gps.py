@@ -39,61 +39,81 @@ import time
 
 
 class EmlidReachSettings(metaclass=Singleton):
+
+    _RETRYCOUNT_MAX_WHEN_DISCONNECTED = "emlid.reach.retrycount_max_when_disconnected"
+    _WAITING_PERIOD_AFTER_DISCONNECTION = "emlid.reach.waiting_period_after_disconection"
+    _GPS_SOCKETTIMEOUT = "emlid.reach.sockettimeout"
     
     def __init__( self):
-        self.__fv_ip_addr_wrk = flex.VariableDeMoPe( id="emlid.reach.ip_addr.wrk", value="192.168.42.1", label="EMLID Reach ip addr", dim="", dirname="./")
-        flex.Variable.Store( self.__fv_ip_addr_wrk.id(), self.__fv_ip_addr_wrk)
-        self.__fv_ip_addr_alt_1 = flex.VariableDeMoPe( id="emlid.reach.ip_addr.alt.1", value="192.168.42.1", label="EMLID Reach ip addr", dim="", dirname="./")
-        flex.Variable.Store( self.__fv_ip_addr_alt_1.id(), self.__fv_ip_addr_alt_1)
-        self.__fv_ip_addr_alt_2 = flex.VariableDeMoPe( id="emlid.reach.ip_addr.alt.2", value="10.0.0.1", label="EMLID Reach ip addr (alternate)", dim="", dirname="./")
-        flex.Variable.Store( self.__fv_ip_addr_alt_2.id(), self.__fv_ip_addr_alt_2)
-                                        # Im Objektspeicher speichern
-        self.__fv_waiting_period_after_disconection = flex.VariableDeMoPe( id="emlid.reach.waiting_period_after_disconection", value=3, label="waiting period after disconection", dim="", dirname="./")
+        self.__fv_ip_addr_wrk = flex.VariableDeMoPe( \
+            id="emlid.reach.ip_addr.wrk", 
+            value="192.168.42.1", 
+            label="EMLID Reach ip addr", 
+            dim="", 
+            dirname="./"
+        )
+        
+        fv = self.__fv_waiting_period_after_disconnection = flex.VariableDeMoPe( \
+            id=self._WAITING_PERIOD_AFTER_DISCONNECTION,
+            value=3, label="Waiting period after disconection", 
+            dim="s", 
+            dirname="./"
+        )
+        flex.Variable.Store( fv.id(), fv)
+
+        fv = self.__fv_retrycount_max_when_disconnected = flex.VariableDeMoPe( \
+            id=self._RETRYCOUNT_MAX_WHEN_DISCONNECTED,
+            value=3, label="Retry count max when disconnected", 
+            dim="", 
+            dirname="./"
+        )
+        flex.Variable.Store( fv.id(), fv)
+        
+        fv = self.__fv_gps_socket_timeout = flex.VariableDeMoPe( \
+            id=self._GPS_SOCKETTIMEOUT,
+            value=5, label="GPS sockettimeout", 
+            dim="s", 
+            dirname="./"
+        )
+        flex.Variable.Store( fv.id(), fv)
 
         self.restore()
         return
     
-    def ip_addr_wrk( self, arg=None):
+    def fv( self, id):
+        return flex.Variable.Instance( id)
+
+    
+    def ip_addr( self, arg=None):
         if arg is None:
             return self.__fv_ip_addr_wrk.value()
         
         self.__fv_ip_addr_wrk.value( arg)
         return self
     
-    def ip_addr_alt_1( self, arg=None):
-        if arg is None:
-            return self.__fv_ip_addr_alt_1.value()
-        
-        self.__fv_ip_addr_alt_1.value( arg)
-        return self
-    
-    def ip_addr_alt_2( self, arg=None):
-        if arg is None:
-            return self.__fv_ip_addr_alt_2.value()
-        
-        self.__fv_ip_addr_alt_2.value( arg)
-        return self
-
     def ip_portnbr( self):
         return 1962
     
     def restore( self):
-        self.__fv_ip_addr_alt_1.restore()
-        self.__fv_ip_addr_alt_2.restore()
         self.__fv_ip_addr_wrk.restore()
+        self.__fv_retrycount_max_when_disconnected.restore()
+        self.__fv_waiting_period_after_disconnection.restore()
         return self
     
+    def retrycount_max_when_disconnected( self):
+        return self.__fv_retrycount_max_when_disconnected.value()
+
     def socket_timeout( self):
-        return 5
+        return self.__fv_gps_socket_timeout.value()
    
     def store( self):
-        self.__fv_ip_addr_alt_1.store()
-        self.__fv_ip_addr_alt_2.store()
         self.__fv_ip_addr_wrk.store()
+        self.__fv_retrycount_max_when_disconnected.store()
+        self.__fv_waiting_period_after_disconnection.restore()
         return
     
     def waiting_period_after_disconection( self):
-        return self.__fv_waiting_period_after_disconection.value()
+        return self.__fv_waiting_period_after_disconnection.value()
     
     
 class EmlidReachConnector:
@@ -162,52 +182,42 @@ class EmlidReachGPS(Sensor3):
         
         self.__fv_default = flex.VariableDeClMo( value=0.0, label="Distance from wPorg", dim="m")
         
-#        _SMStates._Common()._fv_ip_addr.value( ip_addr).store()
-#        _SMStates._Common()._fv_ip_portnbr.value( ip_portnbr).store()
-        _SMStates.GPSConnectedAndReceiving()._tau4p_on_data += self._tau4s_on_data_
-        self.__sm = SM(\
+        _SMStates4GPS.GPSReceiving()._tau4p_on_data += self._tau4s_on_data_
+        self.__sm = _SM4GPS(\
             {\
-                _SMStates.GPSIdle(): \
+                _SMStates4GPS.GPSIdle(): \
                     { \
-                        lambda: True: _SMStates.GPSConnecting(),
+                        lambda: True: _SMStates4GPS.GPSConnecting(),
                     },
                     
-                _SMStates.GPSConnecting(): \
+                _SMStates4GPS.GPSConnecting(): \
                     { \
-                        _SMStates.GPSConnecting().exitcondition_CONNECTED_TO_GPS: _SMStates.GPSConnectedAndReceiving(),
-                        _SMStates.GPSConnecting().exitcondition_ERROR: _SMStates.GPSFinding(),
+                        _SMStates4GPS.GPSConnecting().exitcondition_CONNECTED_TO_GPS: _SMStates4GPS.GPSReceiving(),
+                        _SMStates4GPS.GPSConnecting().exitcondition_ERROR: _SMStates4GPS.GPSFinding(),
                     },
                 
-                _SMStates.GPSFinding(): \
+                _SMStates4GPS.GPSFinding(): \
                     { \
-                        _SMStates.GPSFinding().exitcondition_GPS_FOUND: _SMStates.GPSConnecting(),
-                        _SMStates.GPSFinding().exitcondition_ERROR: _SMStates.GPSError(),
-#                        _SMStates.GPSFinding().exitcondition_GPS_NOT_FOUND: _SMStates.GPSFindingAlternate(),
-                        _SMStates.GPSFinding().exitcondition_GPS_NOT_FOUND: _SMStates.GPSFinding(),
+                        _SMStates4GPS.GPSFinding().exitcondition_GPS_FOUND: _SMStates4GPS.GPSConnecting(),
+                        _SMStates4GPS.GPSFinding().exitcondition_ERROR: _SMStates4GPS.GPSError(),
+                        _SMStates4GPS.GPSFinding().exitcondition_GPS_NOT_FOUND: _SMStates4GPS.GPSFinding(),
                     },
                 
-#                _SMStates.GPSFindingAlternate(): \
-#                    { \
-#                        _SMStates.GPSFindingAlternate().exitcondition_GPS_FOUND: _SMStates.GPSConnecting(),
-#                        _SMStates.GPSFindingAlternate().exitcondition_ERROR: _SMStates.GPSError(),
-#                        _SMStates.GPSFindingAlternate().exitcondition_GPS_NOT_FOUND: _SMStates.GPSFinding(),
-#                    },
-                
-                _SMStates.GPSConnectedAndReceiving(): \
+                _SMStates4GPS.GPSReceiving(): \
                     { \
-                        _SMStates.GPSConnectedAndReceiving().is_disconnected: _SMStates.GPSDisconnected(),
+                        _SMStates4GPS.GPSReceiving().exitcondition_GPS_IS_DISCONNECTED: _SMStates4GPS.GPSDisconnected(),
                     },
                     
-                _SMStates.GPSDisconnected(): \
+                _SMStates4GPS.GPSDisconnected(): \
                     { \
-                        _SMStates.GPSDisconnected().exitcondition_waiting_period_is_over: _SMStates.GPSConnecting(),
+                        _SMStates4GPS.GPSDisconnected().exitcondition_WAITING_PERIOD_IS_OVER: _SMStates4GPS.GPSConnecting(),
                     },
                     
-                _SMStates.GPSError(): \
-                    { lambda: True: _SMStates.GPSIdle()},
+                _SMStates4GPS.GPSError(): \
+                    { lambda: True: _SMStates4GPS.GPSIdle()},
             },
-            _SMStates.GPSIdle(),
-            _SMStates._Common()
+            _SMStates4GPS.GPSIdle(),
+            _SMStates4GPS._Common()
         )
         return
 
@@ -247,7 +257,7 @@ class EmlidReachGPS(Sensor3):
         return self.rT()
     
     def satellite_count( self):
-        return _SMStates._Common()._satellite_count
+        return _SMStates4GPS._Common()._satellite_count
     
     def _sm_( self):
         return self.__sm
@@ -268,7 +278,7 @@ class EmlidReachGPS(Sensor3):
         return self.__sm.smstate_current().__class__.__name__
     
     def status( self):
-        return _SMStates._Common()._fv_status
+        return _SMStates4GPS._Common()._fv_status
     
     def _tau4s_on_data_( self, tau4pc):
         self._tau4p_on_modified_()
@@ -277,7 +287,7 @@ class EmlidReachGPS(Sensor3):
     def wP( self):
         """Aktuelle Position relativ {W}.
         """
-        return _SMStates._Common()._wP
+        return _SMStates4GPS._Common()._wP
 
     pass
     ############################################################################    
@@ -366,7 +376,7 @@ class IpAddrSupplier:
         
     
     
-class Receiver:
+class Receiver_DEPRECATED:
     
     """ Übernimmt das Empfangen und Verarbeiten der Daten.
     """
@@ -412,7 +422,47 @@ class Receiver:
             return None        
 
 
-class _SMStates:
+class Receiver:
+    
+    """ Übernimmt das Empfangen und Verarbeiten der Daten.
+    """
+    
+    def __init__( self):
+        self.__datastr = b""
+        self.__buffersize = 4096
+        return
+    
+    def data( self, socket):
+        while not b"\n" in self.__datastr:
+            data = socket.recv( self.__buffersize)
+            if not len( data):
+                break
+            
+            self.__datastr += data
+
+        try:
+            items = self.__datastr.split( b"\n")
+            data = items[ -2]
+                                            # Letzter sicher vollständige Datensatz
+            self.__datastr = items[ -1]
+                                            # Unvollständiger "Schwanz" des Datensatzes
+            return data
+        
+        except (IndexError, ValueError) as e:
+            UsrEventLog().log_error( "Received data seem to be corrupted or Rover has closed down the socket: '%s'!" % e, ThisName( self))
+                                        # Caller muss Socket schließen, sonst 
+                                        #   laufen wir hier immer in den Timeout!
+            return None        
+
+
+class _SM4GPS(SM):
+    
+    def execute( self):
+        super().execute()
+        return
+    
+    
+class _SMStates4GPS:
     
     class _Common(metaclass=Singleton):
         
@@ -449,7 +499,7 @@ class _SMStates:
         
         def common( self):
             common = super().common()
-            assert isinstance( common, _SMStates._Common)
+            assert isinstance( common, _SMStates4GPS._Common)
             return common
         
         def _ipaddr_increment_( self, ip_addr):
@@ -477,149 +527,6 @@ class _SMStates:
             return self.common()._wP
         
     
-    class GPSConnectedAndReceiving(_SMState):
-        
-        """We are conected and receiving.
-        
-        Payload:
-            Receive data and store them, so that they can be retrieved by a 
-            call to _SMStates._Common().wP()
-        """
-        
-        def __init__( self):
-            super().__init__()
-            
-            self._tau4p_on_data = PublisherChannel.Synch( self)
-            return
-        
-        def close( self):
-            super().close()
-            return
-                
-        def execute( self):
-            try:
-                ### Daten im Format LLA lesen (heißt LLH bei Emlid)
-                #
-                data = self.common()._receiver.data( self.common()._socket)
-                
-                if data:
-                    gps_week, time_of_week, lat, lon, h, quality_flag, satellite_count, *dont_care = map( float, data.strip().split())
-        
-                    ### Daten in (X, Y) umrechnen
-                    #
-                    wX, wY = Utils.LL2XY( lat, lon)
-
-                    ### Daten nach {W} transformieren
-                    #
-                    self.common()._wP << Vector3( wX, wY, h)
-                    
-                    ### Weitere Daten speichern für Anzeige
-                    #
-                    self.__satellite_count = satellite_count
-                    
-                    self.status().to_ok()
-                    
-                    self._tau4p_on_data()
-                    
-                    self.common()._time_connection_stable = time.time()
-
-                else:
-                    self.status().to_nok()
-                    UsrEventLog().log_error( "Didn't receive data, close socket now!", ThisName( self))
-                
-            except ConnectionResetError as e:
-                self.status().to_nok()
-                UsrEventLog().log_error( "Lost connection to navi: ConnectionResetError '%s'!" % e, ThisName( self))
-        
-            except socket.timeout as e:
-                self.status().to_nok()
-                UsrEventLog().log_error( "Lost connection to navi: '%s'!" % e, ThisName( self))
-
-            return
-        
-        def is_disconnected( self):
-            return self.status().is_nok()
-        
-        def open( self, *args):
-            super().open( *args)
-            return
-                 
-        
-        
-    class GPSDisconnected(_SMState):
-        
-        def open( self, *args):
-            super().open( *args)
-            self.common()._time_connection_lost = time.time()
-            UsrEventLog().log_warning( \
-                "Will wait for %d s before trying to connect again." % EmlidReachSettings().waiting_period_after_disconection(), 
-                ThisName( self)
-            )
-            return
-            
-        def exitcondition_waiting_period_is_over( self):
-            exitcondition_waiting_period_is_over = time.time() - self.common()._time_connection_lost > EmlidReachSettings().waiting_period_after_disconection()
-            if exitcondition_waiting_period_is_over:
-                UsrEventLog().log_warning( "Going to connect again to '%s'." % EmlidReachSettings().ip_addr_wrk(), ThisName( self))
-
-            return exitcondition_waiting_period_is_over
-    
-    
-    class GPSConnectingFirstTime(_SMState):
-        
-        """Nimmt die Verbindungsdaten aus einer flex.Varbl und versucht damit eine Verbindung zum Device herzustellen.
-        """
-    
-        def open( self, sm):
-            super().open( sm)
-            self._is_error = False
-            self._is_open = False
-            return
-        
-        def close( self):
-            super().close()
-            return
-        
-        def execute( self):
-            if not self.common()._socket:
-                try:
-                    self.common()._socket = socket.socket( socket.AF_INET, socket.SOCK_STREAM)
-                    self.common()._socket.settimeout( EmlidReachSettings().socket_timeout())
-                    self.common()._socket.connect( (EmlidReachSettings().ip_addr_wrk(), EmlidReachSettings().ip_portnbr()))
-                    self.common()._receiver.data( self.common()._socket)
-                                                    # Okay, we are connected, but can we receive?
-                    EmlidReachSettings().store()
-                    self.common()._is_open = True
-                    
-                except socket.timeout as e:
-                    UsrEventLog().log_error( "Cannot connect to navi: '%s'!" % e, ThisName( self))
-                    self.common()._fv_is_error.value( 1)
-                    
-                except ConnectionRefusedError as e:
-                    UsrEventLog().log_error( "Cannot connect to navi: '%s'!" % e, ThisName( self))
-                    self.common()._fv_is_error.value( 1)
-                    
-                except OSError as e:
-                    UsrEventLog().log_error( "Cannot connect to navi: '%s'!" % e, ThisName( self))
-                    self.common()._fv_is_error.value( 1)
-                                            
-            else:
-                self.common()._is_open = True
-                EmlidReachSettings().store()
-                
-            return self
-        
-        def exitcondition_CONNECTED_TO_GPS( self):
-            is_connected = self.common()._socket is not None and self.common()._is_open
-            if is_connected:
-                UsrEventLog().log_info( "First-time connection to navi successful at ip address '%s'." % EmlidReachSettings().ip_addr_wrk(), ThisName( self))
-                
-            return is_connected
-    
-        def exitcondition_ERROR( self):
-            return self.common()._fv_is_error.value() != 0
-    
-    
     class GPSConnecting(_SMState):
         
         """Nimmt die Verbindungsdaten aus einer flex.Varbl und versucht damit eine Verbindung zum Device herzustellen.
@@ -634,22 +541,24 @@ class _SMStates:
                 try:
                     self.common()._socket = socket.socket( socket.AF_INET, socket.SOCK_STREAM)
                     self.common()._socket.settimeout( EmlidReachSettings().socket_timeout())
-                    self.common()._socket.connect( (EmlidReachSettings().ip_addr_wrk(), EmlidReachSettings().ip_portnbr()))
+                    self.common()._socket.connect( (EmlidReachSettings().ip_addr(), EmlidReachSettings().ip_portnbr()))
+                    UsrEventLog().log_warning( "Connected to navi at '%s'." % EmlidReachSettings().ip_addr(), ThisName( self))
                     self.common()._receiver.data( self.common()._socket)
-                                                    # Okay, we are connected, but can we receive?
+                                                    # Okay, we are connected, but 
+                                                    #   can we receive? Check this!
                     EmlidReachSettings().store()
                     self.common()._is_open = True
                     
                 except socket.timeout as e:
-                    UsrEventLog().log_error( "Cannot connect to navi: '%s'!" % e, ThisName( self))
+                    UsrEventLog().log_error( "Cannot connect to navi at '%s': '%s'!" % (EmlidReachSettings().ip_addr(), e), ThisName( self))
                     self.common()._fv_is_error.value( 1)
                     
                 except ConnectionRefusedError as e:
-                    UsrEventLog().log_error( "Cannot connect to navi: '%s'!" % e, ThisName( self))
+                    UsrEventLog().log_error( "Cannot connect to navi at '%s': '%s'!" % (EmlidReachSettings().ip_addr(), e), ThisName( self))
                     self.common()._fv_is_error.value( 1)
                     
                 except OSError as e:
-                    UsrEventLog().log_error( "Cannot connect to navi: '%s'!" % e, ThisName( self))
+                    UsrEventLog().log_error( "Cannot connect to navi at '%s': '%s'!" % (EmlidReachSettings().ip_addr(), e), ThisName( self))
                     self.common()._fv_is_error.value( 1)
                                             
             else:
@@ -661,7 +570,7 @@ class _SMStates:
         def exitcondition_CONNECTED_TO_GPS( self):
             is_connected = self.common()._socket is not None and self.common()._is_open
             if is_connected:
-                UsrEventLog().log_info( "Connection to navi successful at ip address '%s'." % EmlidReachSettings().ip_addr_wrk(), ThisName( self))
+                UsrEventLog().log_info( "Connection to navi successful at '%s'." % EmlidReachSettings().ip_addr(), ThisName( self))
                 
             return is_connected
     
@@ -675,6 +584,27 @@ class _SMStates:
             return
         
     
+    class GPSDisconnected(_SMState):
+        
+        def open( self, *args):
+            super().open( *args)
+            self.common()._time_connection_lost = time.time()
+            UsrEventLog().log_warning( \
+                "Will wait for '%d' s before trying to connect again." % EmlidReachSettings().waiting_period_after_disconection(), 
+                ThisName( self)
+            )
+            self.common()._socket.close()
+            self.common()._socket = None
+            return
+            
+        def exitcondition_WAITING_PERIOD_IS_OVER( self):
+            exitcondition_waiting_period_is_over = time.time() - self.common()._time_connection_lost > EmlidReachSettings().waiting_period_after_disconection()
+            if exitcondition_waiting_period_is_over:
+                UsrEventLog().log_warning( "Going to connect again to '%s'." % EmlidReachSettings().ip_addr(), ThisName( self))
+
+            return exitcondition_waiting_period_is_over
+    
+    
     class GPSError(_SMState):
         
         def execute( self):
@@ -682,119 +612,6 @@ class _SMStates:
         
         def is_ackned( self):
             return True  
-    
-
-    class GPSIdle(_SMState):
-        
-        def execute( self):
-            return
-        
-        def is_enabled( self):
-            return True
-    
-    
-    class GPSFinding_DEPRECATED(_SMState):
-        
-        """Netz nach Devices absuchen.
-        """
-        
-        def __init__( self):
-            super().__init__()
-
-            self._connector = EmlidReachConnector()
-            self._is_wrapped_around = False
-            self._ip_addr_tuple_org = (0, 0, 0, 0)
-            return
-        
-        def open( self, sm):
-            super().open( sm)
-            
-            ### Reset the parametera
-            #
-            self.__is_wrapped_Around = False
-            self.common()._fv_is_error.value( 0)            
-
-            ### Make sure that the ip address is valid
-            #
-            ip_addr_tuple = self._ipaddr_to_tuple_( self._ip_addr_())
-            ip_addr_tuple[ -1] = ip_addr_tuple[ -1] % 256
-                        # Just to be sure...
-            ip_addr = self._tuple_to_ipaddr_( ip_addr_tuple)
-            self._ip_addr_( ip_addr)
-            self._ip_addr_store_()
-            
-            ### Store the ip addr to be able to detect wrap arounds
-            #
-            self._ip_addr_tuple_org = ip_addr_tuple
-            
-            return
-
-        def close( self):
-            """Close the state.
-            
-            -   Store the ip address found
-            -   Don't reset any data as the next state may need them! If you need 
-                data to be rest upon entering this state, do that in open()!
-            """
-            super().close()
-
-            self._ip_addr_store_()
-            return self
-        
-        def execute( self):
-            ### Connect to the (valid) ip addr and store that ip address
-            #
-            UsrEventLog().log_info( "IP address tuple = '%s'. " % self._ip_addr_(), ThisName( self))
-            self.common()._socket = self._connector.socket( self._ip_addr_(), EmlidReachSettings().ip_portnbr())
-                 
-            if self.common()._socket is None:
-                ### Increment the ip address
-                #
-                ip_addr_tuple = self._ipaddr_to_tuple_( self._ip_addr_())
-                ip_addr_tuple[ -1] = (ip_addr_tuple[ -1] + 1) % 256
-                if self._ip_addr_tuple_org[ -1] == ip_addr_tuple[ -1]:
-                                                # We had a wrap around, so try an 
-                                                #   alternate ip-address space
-                    self._is_wrapped_around = True
-                    return
-                    
-                ip_addr = self._tuple_to_ipaddr_( ip_addr_tuple)
-                self._ip_addr_( ip_addr)
-                EmlidReachSettings().ip_addr_wrk( self._ip_addr_())
-                UsrEventLog().log_info( "Incremented ip address. IP address tuple = '%s'. " % self._ip_addr_(), ThisName( self))
-                
-            return
-        
-        def exitcondition_GPS_NOT_FOUND( self):
-            return self._is_wrapped_around
-        
-        def exitcondition_ERROR( self):
-            """2DO: Will never happen, which is - okay?
-            """
-            return self.common()._fv_is_error.value()
-
-        def exitcondition_GPS_FOUND( self):
-            is_found = self.common()._socket is not None
-            return is_found
-        
-        def _ip_addr_( self, arg=None):
-            return EmlidReachSettings().ip_addr_alt_1( arg)
-        
-        def _ip_addr_store_( self):
-            EmlidReachSettings().store()
-    
-
-#    class GPSFindingAlternate(GPSFinding):
-#        
-#        """Alternatives Netz nach Devices absuchen.
-#        """
-#        
-#        def __init__( self):
-#            super().__init__()
-#            return
-#        
-#        def _ip_addr_( self, arg=None):
-#            return EmlidReachSettings().ip_addr_alt_2( arg)
     
 
     class GPSFinding(_SMState):
@@ -876,18 +693,106 @@ class _SMStates:
             return self.common()._socket is not None
             
 
-#    class GPSFindingAlternate(GPSFinding):
-#        
-#        """Alternatives Netz nach Devices absuchen.
-#        """
-#        
-#        def __init__( self):
-#            super().__init__()
-#            return
-#        
-#        def _ip_addr_( self, arg=None):
-#            return EmlidReachSettings().ip_addr_alt_2( arg)
+    class GPSIdle(_SMState):
+        
+        def execute( self):
+            return
+        
+        def is_enabled( self):
+            return True
     
+    
+    class GPSReceiving(_SMState):
+        
+        """We are conected and receiving.
+        
+        Payload:
+            Receive data and store them, so that they can be retrieved by a 
+            call to _SMStates._Common().wP()
+        """
+        
+        def __init__( self):
+            super().__init__()
+            
+            self._tau4p_on_data = PublisherChannel.Synch( self)
+            return
+        
+        def close( self):
+            super().close()
+            return
+                
+        def execute( self):
+            try:
+                ### Daten im Format LLA lesen (heißt LLH bei Emlid)
+                #
+                data = self.common()._receiver.data( self.common()._socket)
+                
+                if data:
+                    gps_week, time_of_week, lat, lon, h, quality_flag, satellite_count, *dont_care = map( float, data.strip().split())
+        
+                    ### Daten in (X, Y) umrechnen
+                    #
+                    wX, wY = Utils.LL2XY( lat, lon)
+
+                    ### Daten nach {W} transformieren
+                    #
+                    self.common()._wP << Vector3( wX, wY, h)
+                    
+                    ### Weitere Daten speichern für Anzeige
+                    #
+                    self.__satellite_count = satellite_count
+                    
+                    self.status().to_ok()
+                    
+                    self._tau4p_on_data()
+                    
+                    self.common()._time_connection_stable = time.time()
+                    
+                    if self.__disconnectioncount:
+                        UsrEventLog().log_info( "Retry successful, still connected to navi at '%s'." % EmlidReachSettings().ip_addr(), ThisName( self))
+                        self.__disconnectioncount = 0
+
+                else:
+                    self.status().to_nok()
+                    UsrEventLog().log_error( "Didn't receive data from navi at '%s', close socket now!" % EmlidReachSettings().ip_addr(), ThisName( self))
+                
+            except ConnectionResetError as e:
+                self.__disconnectioncount += 1
+                self.status().to_nok()
+                UsrEventLog().log_warning( "Lost connection to navi at '%s': ConnectionResetError '%s', going to retry!" % (EmlidReachSettings().ip_addr(), e), ThisName( self))
+
+            except socket.timeout as e:
+                self.__disconnectioncount += 1
+                self.status().to_nok()
+                UsrEventLog().log_warning( "Lost connection to navi at '%s': socket.timeout '%s', going to retry!" % (EmlidReachSettings().ip_addr(), e), ThisName( self))
+
+            return
+        
+        def exitcondition_GPS_IS_DISCONNECTED( self):
+            if self.status().is_nok():
+                if self.__disconnectioncount > self.__retrycount_max_when_disconnected:
+                    UsrEventLog().log_error( \
+                        "Lost connection to navi at '%s' (tried '%d' times), going to reconnect after '%d' s!" 
+                        % ( \
+                            EmlidReachSettings().ip_addr(), 
+                            EmlidReachSettings().retrycount_max_when_disconnected(), 
+                            EmlidReachSettings().waiting_period_after_disconection()
+                          ), 
+                        ThisName( self)
+                    )
+                    return True
+                
+            return False
+        
+        def open( self, *args):
+            super().open( *args)
+            
+            self.__retrycount_max_when_disconnected = EmlidReachSettings().retrycount_max_when_disconnected()
+            self.__disconnectioncount = 0
+            return
+                 
+        
+        
 
 class Utils:
 
