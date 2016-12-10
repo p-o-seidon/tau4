@@ -27,7 +27,8 @@ from math import *
 
 import tau4
 from tau4.mathe.linalg import T3D, Vector3
-from tau4.sensors import gps, IRS, IRSDummy, Locator, navi, Rangers, Sensors2, SensorSpecDataIRS, SensorSpecDataUSS, USS
+from tau4.sensors import gps, IRS, IRSDummy, Locator, navi, Sensors2, SensorSpecDataIRS, SensorSpecDataUSS, USS
+from tau4.sensors.gps import IpAddrSupplier
 import time
 import unittest
 
@@ -311,12 +312,56 @@ class _TESTCASE__Rangers(unittest.TestCase):
 _Testsuite.addTest( unittest.makeSuite( _TESTCASE__Rangers))
 
 
+class _TESTCASE__IpAddrSupplier(unittest.TestCase):
+
+    def test( self):
+        """
+        """
+        print()
+        return
+
+
+_Testsuite.addTest( unittest.makeSuite( _TESTCASE__IpAddrSupplier))
+
+
 class _TESTCASE__(unittest.TestCase):
 
     def test( self):
         """
         """
         print()
+        
+        ipas = IpAddrSupplier( ip_addrs=("192.168.42.253", "10.0.0.254"), dirname="./")
+                                        # These addresses are taken when the testcase 
+                                        #   runs the very first time. All other 
+                                        #   testcase runs take the remembered values 
+                                        #   (see below).
+        ipas.open()
+        ip_addrs = ipas.ip_addrs()
+        self.assertEqual( "192.168.42.253", next( ip_addrs))
+        self.assertEqual( "10.0.0.254", next( ip_addrs))
+        self.assertEqual( "192.168.42.254", next( ip_addrs))
+        self.assertEqual( "192.168.42.255", next( ip_addrs))
+        self.assertEqual( "192.168.42.1", next( ip_addrs))
+            
+        while next( ip_addrs) != "192.168.42.252":
+            pass
+        
+        ipas.remember( "192.168.42.42")
+        
+        self.assertEqual( "10.0.0.255", next( ip_addrs))
+        
+        ipas.remember( "10.0.0.42")
+
+        ipas.close()
+
+        self.assertTrue( "192.168.42.42" in ipas.remembereds())
+        self.assertTrue( "10.0.0.42" in ipas.remembereds())
+
+        ipas.remember( "192.168.42.253")
+                                        # Otherwise this testcase would pass only once!
+        ipas.remember( "10.0.0.254")
+                                        # Otherwise this testcase would pass only once!
         return
 
 

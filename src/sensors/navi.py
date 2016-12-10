@@ -20,6 +20,8 @@
 #   along with tau4. If not, see <http://www.gnu.org/licenses/>.
 
 from math import *
+import statistics
+import threading
 
 from tau4 import ThisName
 from tau4.datalogging import UsrEventLog
@@ -28,6 +30,36 @@ from tau4.mathe.linalg import T3D, Vector3
 from tau4.sensors import Locator, Sensor3
 from tau4.sweng import PublisherChannel
 from tau4 import threads
+
+
+class LockedRingbufferStatistix(buffers.RinbufferStatistix):
+    
+    def __init__( self, elemcount_max, elems=None):
+        super().__init__( elemcount_max, elems)
+        
+        self.__lock = threading.Lock()
+        return
+
+    def elem( self, elem=None):
+        with self.__lock:
+            return super().elem( elem)
+        
+    def mean( self):
+        with self.__lock:
+            return statistics.mean( self.elems())
+    
+    def median( self):
+        with self.__lock:
+            return statistics.median( self.elems())
+    
+    def stddev( self):
+        try:
+            with self.__lock:
+                return statistics.stdev( self.elems())
+        
+        except statistics.StatisticsError:
+            return sys.float_info.max
+
 
 class NavSys(Sensor3):
     
@@ -49,10 +81,10 @@ class NavSys(Sensor3):
         self.__gps = gps
         self.__gps.reg_tau4s_on_modified( lambda tau4pc, self=self: self._tau4p_on_modified_())
         
-        self.__statistixbuffer_wX = buffers.RinbufferStatistix( 10)
-        self.__statistixbuffer_wY = buffers.RinbufferStatistix( 10)
-        self.__statistixbuffer_bX = buffers.RinbufferStatistix( 10)
-        self.__statistixbuffer_bY = buffers.RinbufferStatistix( 10)
+        self.__statistixbuffer_wX = LockedRingbufferStatistix( 10)
+        self.__statistixbuffer_wY = LockedRingbufferStatistix( 10)
+        self.__statistixbuffer_bX = LockedRingbufferStatistix( 10)
+        self.__statistixbuffer_bY = LockedRingbufferStatistix( 10)
         
         UsrEventLog().log_info( self.__class__.__name__ + " is created. ", ThisName( self))
         return

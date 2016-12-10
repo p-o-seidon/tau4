@@ -23,7 +23,7 @@ import copy
 import sys
 import uuid
 
-from _4all import _settings
+#from _4all import _settings
 
 
 __VERSION_NUMBER_MAJOR = 0

@@ -19,6 +19,7 @@
 
 import abc
 
+from collections import deque
 from datetime import datetime
 import logging
 from logging import handlers
@@ -210,6 +211,41 @@ class _InfoEvent(_Event):
         return "INFO"
     
     
+class DequeWithLock(deque):
+    
+    def __init__( self, *args, **kwargs):
+        super().__init__( *args, **kwargs)
+        
+        self.__lock = threading.Lock()
+        return
+    
+    def __getitem__( self, *args):
+        with self.__lock:
+            return super().__getitem__( *args)
+    
+    def __iter__( self, *args):
+        with self.__lock:
+            return super().__iter__( *args)
+    
+    def append( self, elem):
+        with self.__lock:
+            super().append( elem)
+            
+        return self
+    
+    def clear( self):
+        with self.__lock:
+            super().clear()
+            
+        return self
+
+    def extend( self, elems):
+        with self.__lock:
+            super().extend( elems)
+            
+        return self
+
+    
 class _WarningEvent(_Event):
     
     """Warning.
@@ -266,9 +302,9 @@ class _EventLog(metaclass=Singleton):
         
         self.__tau4p_on_changes = PublisherChannel.Synch( self)
         
-        self.__errors = []
-        self.__infos = []
-        self.__warnings = []
+        self.__errors = DequeWithLock( maxlen=10000)
+        self.__infos = DequeWithLock( maxlen=10000)
+        self.__warnings = DequeWithLock( maxlen=10000)
         
         self.__events = []
         
@@ -447,6 +483,7 @@ class _EventLog(metaclass=Singleton):
     
     def _events_sort_( self):
         self.__events.sort( key=lambda event: event.timestamp())
+        self.__events.reverse()
         return self
         
     

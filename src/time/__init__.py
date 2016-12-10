@@ -24,7 +24,7 @@ from timeit import default_timer
 
 from tau4.threads import Thread
 
-from _4all import _settings
+#from _4all import _settings
 
 
 class Scheduler:

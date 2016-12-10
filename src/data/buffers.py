@@ -32,7 +32,7 @@ class Ringbuffer:
     def __init__( self, elemcount_max, elems=None):
         self.__buffer = collections.deque( iterable=elems if elems else [], maxlen=elemcount_max)
         return
-
+    
     def elem( self, elem=None):
         if elem is None:
             try:
@@ -52,7 +52,7 @@ class Ringbuffer:
     
     def elems( self):
         return self.__buffer
-    
+        
     
 class RingbufferTyped(Ringbuffer):
     

@@ -32,7 +32,6 @@ from tau4.automation.sm import SM, SMState
 from tau4.data import flex
 from tau4.datalogging import SysEventLog, UsrEventLog
 from tau4.mathe.linalg import T3D, Vector3
-#from tau4.sensors import Locator, GPSStatus, Sensor3
 from tau4.sensors import Locator, Sensor3
 from tau4.sweng import PublisherChannel, Singleton
 
@@ -42,39 +41,62 @@ import time
 class EmlidReachSettings(metaclass=Singleton):
     
     def __init__( self):
-        self.__fv_ip_addr = flex.VariableDeMoPe( id="emlid.reach.ip_addr", value="192.168.42.1", label="EMLID Reach IP Addr", dim="", dirname="./")
-        flex.Variable.Store( self.__fv_ip_addr.id(), self.__fv_ip_addr)
+        self.__fv_ip_addr_wrk = flex.VariableDeMoPe( id="emlid.reach.ip_addr.wrk", value="192.168.42.1", label="EMLID Reach ip addr", dim="", dirname="./")
+        flex.Variable.Store( self.__fv_ip_addr_wrk.id(), self.__fv_ip_addr_wrk)
+        self.__fv_ip_addr_alt_1 = flex.VariableDeMoPe( id="emlid.reach.ip_addr.alt.1", value="192.168.42.1", label="EMLID Reach ip addr", dim="", dirname="./")
+        flex.Variable.Store( self.__fv_ip_addr_alt_1.id(), self.__fv_ip_addr_alt_1)
+        self.__fv_ip_addr_alt_2 = flex.VariableDeMoPe( id="emlid.reach.ip_addr.alt.2", value="10.0.0.1", label="EMLID Reach ip addr (alternate)", dim="", dirname="./")
+        flex.Variable.Store( self.__fv_ip_addr_alt_2.id(), self.__fv_ip_addr_alt_2)
                                         # Im Objektspeicher speichern
         self.__fv_waiting_period_after_disconection = flex.VariableDeMoPe( id="emlid.reach.waiting_period_after_disconection", value=3, label="waiting period after disconection", dim="", dirname="./")
+
         self.restore()
         return
     
-    def ip_addr( self, arg=None):
+    def ip_addr_wrk( self, arg=None):
         if arg is None:
-            return self.__fv_ip_addr.value()
+            return self.__fv_ip_addr_wrk.value()
         
-        self.__fv_ip_addr.value( arg)
+        self.__fv_ip_addr_wrk.value( arg)
         return self
     
+    def ip_addr_alt_1( self, arg=None):
+        if arg is None:
+            return self.__fv_ip_addr_alt_1.value()
+        
+        self.__fv_ip_addr_alt_1.value( arg)
+        return self
+    
+    def ip_addr_alt_2( self, arg=None):
+        if arg is None:
+            return self.__fv_ip_addr_alt_2.value()
+        
+        self.__fv_ip_addr_alt_2.value( arg)
+        return self
+
     def ip_portnbr( self):
         return 1962
     
     def restore( self):
-        self.__fv_ip_addr.restore()
+        self.__fv_ip_addr_alt_1.restore()
+        self.__fv_ip_addr_alt_2.restore()
+        self.__fv_ip_addr_wrk.restore()
         return self
     
     def socket_timeout( self):
         return 5
    
     def store( self):
-        self.__fv_ip_addr.store()
+        self.__fv_ip_addr_alt_1.store()
+        self.__fv_ip_addr_alt_2.store()
+        self.__fv_ip_addr_wrk.store()
         return
     
     def waiting_period_after_disconection( self):
         return self.__fv_waiting_period_after_disconection.value()
     
     
-class EmlidReachFinder:
+class EmlidReachConnector:
     
     def __init__( self):
         return
@@ -152,15 +174,24 @@ class EmlidReachGPS(Sensor3):
                     
                 _SMStates.GPSConnecting(): \
                     { \
-                        _SMStates.GPSConnecting().is_connected: _SMStates.GPSConnectedAndReceiving(),
-                        _SMStates.GPSConnecting().is_error: _SMStates.GPSFinding(),
+                        _SMStates.GPSConnecting().exitcondition_CONNECTED_TO_GPS: _SMStates.GPSConnectedAndReceiving(),
+                        _SMStates.GPSConnecting().exitcondition_ERROR: _SMStates.GPSFinding(),
                     },
                 
                 _SMStates.GPSFinding(): \
                     { \
-                        _SMStates.GPSFinding().is_found: _SMStates.GPSConnecting(),
-                        _SMStates.GPSFinding().is_error: _SMStates.GPSError(),
+                        _SMStates.GPSFinding().exitcondition_GPS_FOUND: _SMStates.GPSConnecting(),
+                        _SMStates.GPSFinding().exitcondition_ERROR: _SMStates.GPSError(),
+#                        _SMStates.GPSFinding().exitcondition_GPS_NOT_FOUND: _SMStates.GPSFindingAlternate(),
+                        _SMStates.GPSFinding().exitcondition_GPS_NOT_FOUND: _SMStates.GPSFinding(),
                     },
+                
+#                _SMStates.GPSFindingAlternate(): \
+#                    { \
+#                        _SMStates.GPSFindingAlternate().exitcondition_GPS_FOUND: _SMStates.GPSConnecting(),
+#                        _SMStates.GPSFindingAlternate().exitcondition_ERROR: _SMStates.GPSError(),
+#                        _SMStates.GPSFindingAlternate().exitcondition_GPS_NOT_FOUND: _SMStates.GPSFinding(),
+#                    },
                 
                 _SMStates.GPSConnectedAndReceiving(): \
                     { \
@@ -285,6 +316,56 @@ class GPSStatus(flex.VariableDeClMo):
         return self
 
 
+class IpAddrSupplier:
+    
+    def __init__( self, ip_addrs, dirname):
+        self.__fvlist_ip_addr = []
+        self.__tuplelist_ip_addr = []
+        for ip_addr in ip_addrs:
+            self.__fvlist_ip_addr.append( flex.VariableDeMoPe( id=ip_addr, value=ip_addr, label="IP Address", dim="", dirname=dirname))
+            self.__fvlist_ip_addr[ -1].restore()
+            self.__tuplelist_ip_addr.append( self._ip_addr_tuple_( self.__fvlist_ip_addr[ -1].value()))
+            
+        return
+    
+    def open( self):
+        return
+
+    def close( self):
+        return
+    
+    def ip_addrs( self):
+        for fv in self.__fvlist_ip_addr:
+            yield fv.value()
+            
+        for ip_addr_tuple in self.__tuplelist_ip_addr:
+            for i in range( 256 - 1):
+                ip_addr_tuple[ -1] = (ip_addr_tuple[ -1] + 1) % 256
+                if ip_addr_tuple[ -1]:  # Let's skip 0
+                    yield self._ip_addr_( ip_addr_tuple)
+                
+        return None
+
+    def _ip_addr_( self, ip_addr_tuple):
+        return ".".join( [str( x) for x in ip_addr_tuple])
+    
+    def _ip_addr_tuple_( self, ip_addr):
+        return [ int( x) for x in ip_addr.split( ".")]
+    
+    def remember( self, ip_addr):
+        for fv in self.__fvlist_ip_addr:
+            if self._ip_addr_tuple_( ip_addr)[ :3] == self._ip_addr_tuple_( fv.value())[ :3]:
+                fv.value( ip_addr)
+                fv.store()
+                break
+            
+        return self
+    
+    def remembereds( self):
+        return [fv.value() for fv in self.__fvlist_ip_addr]
+        
+    
+    
 class Receiver:
     
     """ Übernimmt das Empfangen und Verarbeiten der Daten.
@@ -479,16 +560,22 @@ class _SMStates:
         def exitcondition_waiting_period_is_over( self):
             exitcondition_waiting_period_is_over = time.time() - self.common()._time_connection_lost > EmlidReachSettings().waiting_period_after_disconection()
             if exitcondition_waiting_period_is_over:
-                UsrEventLog().log_warning( "Going to connect again.", ThisName( self))
+                UsrEventLog().log_warning( "Going to connect again to '%s'." % EmlidReachSettings().ip_addr_wrk(), ThisName( self))
 
             return exitcondition_waiting_period_is_over
     
     
-    class GPSConnecting(_SMState):
+    class GPSConnectingFirstTime(_SMState):
         
         """Nimmt die Verbindungsdaten aus einer flex.Varbl und versucht damit eine Verbindung zum Device herzustellen.
         """
     
+        def open( self, sm):
+            super().open( sm)
+            self._is_error = False
+            self._is_open = False
+            return
+        
         def close( self):
             super().close()
             return
@@ -498,7 +585,7 @@ class _SMStates:
                 try:
                     self.common()._socket = socket.socket( socket.AF_INET, socket.SOCK_STREAM)
                     self.common()._socket.settimeout( EmlidReachSettings().socket_timeout())
-                    self.common()._socket.connect( (EmlidReachSettings().ip_addr(), EmlidReachSettings().ip_portnbr()))
+                    self.common()._socket.connect( (EmlidReachSettings().ip_addr_wrk(), EmlidReachSettings().ip_portnbr()))
                     self.common()._receiver.data( self.common()._socket)
                                                     # Okay, we are connected, but can we receive?
                     EmlidReachSettings().store()
@@ -522,14 +609,63 @@ class _SMStates:
                 
             return self
         
-        def is_connected( self):
+        def exitcondition_CONNECTED_TO_GPS( self):
             is_connected = self.common()._socket is not None and self.common()._is_open
             if is_connected:
-                UsrEventLog().log_info( "Connection to navi successful.", ThisName( self))
+                UsrEventLog().log_info( "First-time connection to navi successful at ip address '%s'." % EmlidReachSettings().ip_addr_wrk(), ThisName( self))
                 
             return is_connected
     
-        def is_error( self):
+        def exitcondition_ERROR( self):
+            return self.common()._fv_is_error.value() != 0
+    
+    
+    class GPSConnecting(_SMState):
+        
+        """Nimmt die Verbindungsdaten aus einer flex.Varbl und versucht damit eine Verbindung zum Device herzustellen.
+        """
+    
+        def close( self):
+            super().close()
+            return
+        
+        def execute( self):
+            if not self.common()._socket:
+                try:
+                    self.common()._socket = socket.socket( socket.AF_INET, socket.SOCK_STREAM)
+                    self.common()._socket.settimeout( EmlidReachSettings().socket_timeout())
+                    self.common()._socket.connect( (EmlidReachSettings().ip_addr_wrk(), EmlidReachSettings().ip_portnbr()))
+                    self.common()._receiver.data( self.common()._socket)
+                                                    # Okay, we are connected, but can we receive?
+                    EmlidReachSettings().store()
+                    self.common()._is_open = True
+                    
+                except socket.timeout as e:
+                    UsrEventLog().log_error( "Cannot connect to navi: '%s'!" % e, ThisName( self))
+                    self.common()._fv_is_error.value( 1)
+                    
+                except ConnectionRefusedError as e:
+                    UsrEventLog().log_error( "Cannot connect to navi: '%s'!" % e, ThisName( self))
+                    self.common()._fv_is_error.value( 1)
+                    
+                except OSError as e:
+                    UsrEventLog().log_error( "Cannot connect to navi: '%s'!" % e, ThisName( self))
+                    self.common()._fv_is_error.value( 1)
+                                            
+            else:
+                self.common()._is_open = True
+                EmlidReachSettings().store()
+                
+            return self
+        
+        def exitcondition_CONNECTED_TO_GPS( self):
+            is_connected = self.common()._socket is not None and self.common()._is_open
+            if is_connected:
+                UsrEventLog().log_info( "Connection to navi successful at ip address '%s'." % EmlidReachSettings().ip_addr_wrk(), ThisName( self))
+                
+            return is_connected
+    
+        def exitcondition_ERROR( self):
             return self.common()._fv_is_error.value() != 0
     
         def open( self, sm):
@@ -557,7 +693,7 @@ class _SMStates:
             return True
     
     
-    class GPSFinding(_SMState):
+    class GPSFinding_DEPRECATED(_SMState):
         
         """Netz nach Devices absuchen.
         """
@@ -565,9 +701,34 @@ class _SMStates:
         def __init__( self):
             super().__init__()
 
-            self.__finder = EmlidReachFinder()
+            self._connector = EmlidReachConnector()
+            self._is_wrapped_around = False
+            self._ip_addr_tuple_org = (0, 0, 0, 0)
             return
         
+        def open( self, sm):
+            super().open( sm)
+            
+            ### Reset the parametera
+            #
+            self.__is_wrapped_Around = False
+            self.common()._fv_is_error.value( 0)            
+
+            ### Make sure that the ip address is valid
+            #
+            ip_addr_tuple = self._ipaddr_to_tuple_( self._ip_addr_())
+            ip_addr_tuple[ -1] = ip_addr_tuple[ -1] % 256
+                        # Just to be sure...
+            ip_addr = self._tuple_to_ipaddr_( ip_addr_tuple)
+            self._ip_addr_( ip_addr)
+            self._ip_addr_store_()
+            
+            ### Store the ip addr to be able to detect wrap arounds
+            #
+            self._ip_addr_tuple_org = ip_addr_tuple
+            
+            return
+
         def close( self):
             """Close the state.
             
@@ -577,52 +738,156 @@ class _SMStates:
             """
             super().close()
 
-            EmlidReachSettings().store()
+            self._ip_addr_store_()
             return self
         
         def execute( self):
-            ### Connect to te (valid) ip addr and store that ip address
+            ### Connect to the (valid) ip addr and store that ip address
             #
-            UsrEventLog().log_info( "IP address tuple = '%s'. " % EmlidReachSettings().ip_addr(), ThisName( self))
-            self.common()._socket = self.__finder.socket( EmlidReachSettings().ip_addr(), EmlidReachSettings().ip_portnbr())
+            UsrEventLog().log_info( "IP address tuple = '%s'. " % self._ip_addr_(), ThisName( self))
+            self.common()._socket = self._connector.socket( self._ip_addr_(), EmlidReachSettings().ip_portnbr())
                  
             if self.common()._socket is None:
                 ### Increment the ip address
                 #
-                ip_addr_tuple = self._ipaddr_to_tuple_( EmlidReachSettings().ip_addr())
+                ip_addr_tuple = self._ipaddr_to_tuple_( self._ip_addr_())
                 ip_addr_tuple[ -1] = (ip_addr_tuple[ -1] + 1) % 256
+                if self._ip_addr_tuple_org[ -1] == ip_addr_tuple[ -1]:
+                                                # We had a wrap around, so try an 
+                                                #   alternate ip-address space
+                    self._is_wrapped_around = True
+                    return
+                    
                 ip_addr = self._tuple_to_ipaddr_( ip_addr_tuple)
-                EmlidReachSettings().ip_addr( ip_addr)
-                UsrEventLog().log_info( "Incremented ip address. IP address tuple = '%s'. " % EmlidReachSettings().ip_addr(), ThisName( self))
+                self._ip_addr_( ip_addr)
+                EmlidReachSettings().ip_addr_wrk( self._ip_addr_())
+                UsrEventLog().log_info( "Incremented ip address. IP address tuple = '%s'. " % self._ip_addr_(), ThisName( self))
                 
             return
         
-        def is_error( self):
+        def exitcondition_GPS_NOT_FOUND( self):
+            return self._is_wrapped_around
+        
+        def exitcondition_ERROR( self):
             """2DO: Will never happen, which is - okay?
             """
             return self.common()._fv_is_error.value()
 
-        def is_found( self):
+        def exitcondition_GPS_FOUND( self):
             is_found = self.common()._socket is not None
             return is_found
+        
+        def _ip_addr_( self, arg=None):
+            return EmlidReachSettings().ip_addr_alt_1( arg)
+        
+        def _ip_addr_store_( self):
+            EmlidReachSettings().store()
     
+
+#    class GPSFindingAlternate(GPSFinding):
+#        
+#        """Alternatives Netz nach Devices absuchen.
+#        """
+#        
+#        def __init__( self):
+#            super().__init__()
+#            return
+#        
+#        def _ip_addr_( self, arg=None):
+#            return EmlidReachSettings().ip_addr_alt_2( arg)
+    
+
+    class GPSFinding(_SMState):
+        
+        """Netz nach Devices absuchen.
+        """
+        
+        def __init__( self):
+            super().__init__()
+            
+            self.__is_gps_not_found = False
+
+            self.__finder = IpAddrSupplier( ip_addrs=("192.168.42.253", "10.0.0.254"), dirname="./")
+            self._connector = EmlidReachConnector()
+            return
+        
         def open( self, sm):
             super().open( sm)
             
-            ### Reset the error parameter
+            ### Reset the parameters
             #
-            self.common()._fv_is_error.value( 0)            
-
-            ### Make sure that the ip address is valid
+            self.common()._fv_is_error.value( 0)
+            self.__is_gps_not_found = False
+            
+            ### Get the ip addresses to be tried
             #
-            ip_addr_tuple = self._ipaddr_to_tuple_( EmlidReachSettings().ip_addr())
-            ip_addr_tuple[ -1] = ip_addr_tuple[ -1] % 256
-                        # Just to be sure...
-            ip_addr = self._tuple_to_ipaddr_( ip_addr_tuple)
-            EmlidReachSettings().ip_addr( ip_addr)
+            self.__ip_addrs = self.__finder.ip_addrs()
+            
+            ### Set the first one to be tried
+            #
+            EmlidReachSettings().ip_addr( next( self.__ip_addrs))
 
             return
 
+        def close( self):
+            """Close the state.
+            
+            -   Store the ip address found
+            -   Don't reset any data as the next state may need them! If you need 
+                data to be rest upon entering this state, do that in open()!
+            """
+            super().close()
+            return self
+        
+        def execute( self):
+            this_name = ThisName( self)
+            
+            ### Connect to the (valid) ip addr and store that ip address
+            #
+            UsrEventLog().log_info( "Try to connect to '%s'. " % EmlidReachSettings().ip_addr(), this_name)
+            self.common()._socket = self._connector.socket( \
+                EmlidReachSettings().ip_addr(), EmlidReachSettings().ip_portnbr()
+            )
+                 
+            if self.common()._socket is None:
+                ### Increment the ip address
+                #
+                try:
+                    EmlidReachSettings().ip_addr( next( self.__ip_addrs))
+                    UsrEventLog().log_info( "Incremented ip address. IP address tuple = '%s'. " % EmlidReachSettings().ip_addr(), this_name)
+                    
+                except StopIteration:
+                    self.__is_gps_not_found = True
+                    
+            else:
+                self.__finder.remember( EmlidReachSettings().ip_addr())
+                
+            return
+        
+        def exitcondition_GPS_NOT_FOUND( self):
+            return self.__is_gps_not_found
+        
+        def exitcondition_ERROR( self):
+            """2DO: Will never happen, which is - okay?
+            """
+            return self.common()._fv_is_error.value()
+
+        def exitcondition_GPS_FOUND( self):
+            return self.common()._socket is not None
+            
+
+#    class GPSFindingAlternate(GPSFinding):
+#        
+#        """Alternatives Netz nach Devices absuchen.
+#        """
+#        
+#        def __init__( self):
+#            super().__init__()
+#            return
+#        
+#        def _ip_addr_( self, arg=None):
+#            return EmlidReachSettings().ip_addr_alt_2( arg)
+    
 
 class Utils:
 
