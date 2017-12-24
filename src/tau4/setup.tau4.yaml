@@ -1,0 +1,51 @@
+all:
+    cycletimes: &cycletimes
+        mmi: 0.500
+        plc: 0.01
+        rc: 0.1
+        positionsensor: 0.25
+        goalcontrollers: 1.0
+
+    distances: &distances
+        escapedistance_if_obstacles: 0.5
+
+    speeds: &speeds
+        v_avoiding_100: 60
+        v_escaping_100: 60
+        v_goaling_100: 30
+
+arielle:
+    cycletimes: *cycletimes
+rovercpu01:
+    cycletimes: *cycletimes
+rovercpu02:
+    cycletimes: *cycletimes
+rovercpu03:
+    basename: lunchbox
+
+    cycletimes: *cycletimes
+
+    distances: *distances
+
+    iosystemname: raspi # One of 'arduino', 'explorerhatpro', 'labjack', 'noios', 'raspi'
+    is_distancesensors_available: 1
+    is_md_available: 1
+    is_positionsensor_available: 1
+    mdname: l293d   # One of 'l293d', 'explorerhatpro', 'md25'.
+    positionsensor_ipaddr: 10.0.0.103
+    positionsensor_name: navilock   # One of 'navilock', 'emlid'.
+    positionsensor_portnbr: 6000
+
+    speeds: *speeds
+
+    uss:
+        count: 2
+        distance_max: 2.0
+        poses: (T3D.FromEuler( -0.025, 0.070, 0, radians( 20)), T3D.FromEuler( 0.025, 0.070, 0, radians( -20)))
+
+triton:
+    cycletimes: *cycletimes
+
+    distances: *distances
+
+    speeds: *speeds

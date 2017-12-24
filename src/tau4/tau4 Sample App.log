@@ -1,0 +1,858 @@
+2016-12-17 14:06:12,692 5764 140651733128192   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:06:12,693 5764 140651733128192       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:07:45,167 5783 139801984427008   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:07:45,167 5783 139801984427008       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:07:45,206 5783 139801984427008      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 14:08:35,182 5791 140446593356800   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:08:35,182 5791 140446593356800       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:08:35,219 5791 140446593356800      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 14:12:26,576 5815 140473576039424   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:12:26,577 5815 140473576039424       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:12:26,615 5815 140473576039424      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 14:21:01,059 5849 140074587239424   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:21:01,059 5849 140074587239424       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:21:14,300 5854 140434715120640   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:21:14,300 5854 140434715120640       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:21:25,962 5859 140123352364032   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:21:25,962 5859 140123352364032       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:22:26,548 5872 140083307418624   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:22:26,548 5872 140083307418624       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:22:35,059 5877 140551208571904   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:22:35,059 5877 140551208571904       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:23:44,500 5887 139752695612416   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:23:44,500 5887 139752695612416       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:24:17,410 5892 140000108762112   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:24:17,410 5892 140000108762112       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:26:45,862 5913 139830512948224   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:26:45,862 5913 139830512948224       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:31:52,696 5960 140380475741184   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:31:52,696 5960 140380475741184       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:32:28,916 5965 139786606613504   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:32:28,916 5965 139786606613504       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:34:25,689 5982 140195240408064   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:34:25,689 5982 140195240408064       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:34:33,979 5986 140507943769088   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:34:33,979 5986 140507943769088       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:35:29,939 5995 140088727802880   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:35:29,940 5995 140088727802880       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:35:55,062 5998 140587957785600   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:35:55,063 5998 140587957785600       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:36:01,347 6001 140064551240704   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:36:01,347 6001 140064551240704       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:36:01,395 6001 140064551240704      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 14:37:06,963 6011 139690472297472   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:37:06,963 6011 139690472297472       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:37:07,011 6011 139690472297472      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 14:37:48,241 6020 140598975230976   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:37:48,241 6020 140598975230976       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:37:48,286 6020 140598975230976      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 14:39:45,371 6061 140618998936576   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:39:45,371 6061 140618998936576       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:40:28,620 6065 140009023841280   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:40:28,620 6065 140009023841280       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:42:59,546 6071 140137453966336   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:42:59,546 6071 140137453966336       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:43:18,980 6075 140489733239808   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:43:18,981 6075 140489733239808       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:51:11,057 6383 140398819808256   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:51:11,058 6383 140398819808256       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:51:11,106 6383 140398819808256      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 14:51:51,305 6391 140082196710400   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:51:51,306 6391 140082196710400       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:51:51,361 6391 140082196710400      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 14:52:25,001 6399 140370999854080   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:52:25,001 6399 140370999854080       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:52:25,053 6399 140370999854080      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 14:53:30,502 6408 140396475778048   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 14:53:30,502 6408 140396475778048       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 14:53:30,552 6408 140396475778048      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 15:09:04,994 6437 139830181487616   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 15:09:04,994 6437 139830181487616       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 15:09:14,183 6443 140055994180608   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 15:09:14,183 6443 140055994180608       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 15:09:49,060 6447 139824786609152   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 15:09:49,060 6447 139824786609152       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 15:09:55,772 6451 140646526317568   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 15:09:55,772 6451 140646526317568       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 15:09:55,820 6451 140646526317568      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 15:10:30,438 6459 140234326881280   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 15:10:30,438 6459 140234326881280       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 15:10:30,484 6459 140234326881280      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 15:10:41,133 6467 140181442425856   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 15:10:41,133 6467 140181442425856       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 15:10:41,181 6467 140181442425856      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 15:11:07,960 6475 139862667305984   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 15:11:07,961 6475 139862667305984       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py']'. 
+2016-12-17 15:11:08,012 6475 139862667305984      DEBUG Connecting to gpsd socket at 127.0.0.1:2947
+2016-12-17 15:12:06,170 6485 140436219143168   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 15:12:06,170 6485 140436219143168       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 15:12:26,229 6489 140636082922496   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 15:12:26,229 6489 140636082922496       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 15:18:52,541 6704 139761065411584   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 15:18:52,541 6704 139761065411584       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 15:19:13,837 6713 140685899060224   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 15:19:13,838 6713 140685899060224       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 15:19:19,139 6716 139644519400448   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 15:19:19,139 6716 139644519400448       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 15:58:38,203 6948 139984245208064   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 15:58:38,203 6948 139984245208064       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 16:00:11,493 6954 140508327887872   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 16:00:11,493 6954 140508327887872       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 16:00:38,658 6960 140383213888512   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 16:00:38,658 6960 140383213888512       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 16:52:18,990 7268 139972161393664   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 16:52:18,991 7268 139972161393664       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 16:52:45,092 7285 139639094256640   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 16:52:45,092 7285 139639094256640       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 16:53:14,852 7289 140217329579008   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 16:53:14,852 7289 140217329579008       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 16:54:07,109 7294 139665244013568   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 16:54:07,110 7294 139665244013568       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 16:55:04,795 7298 140142456529920   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 16:55:04,795 7298 140142456529920       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 16:55:13,931 7304 139627703424000   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 16:55:13,931 7304 139627703424000       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 16:55:22,587 7308 140675397571584   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 16:55:22,587 7308 140675397571584       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 16:56:15,901 7313 140359476442112   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 16:56:15,902 7313 140359476442112       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 16:58:11,619 7319 140350422668288   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 16:58:11,619 7319 140350422668288       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 16:59:02,009 7331 139917960381440   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 16:59:02,009 7331 139917960381440       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:07:03,073 7425 139749046297600   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:07:03,073 7425 139749046297600       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:07:34,409 7430 140567562986496   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:07:34,409 7430 140567562986496       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:10:37,267 7441 140465464624128   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:10:37,267 7441 140465464624128       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:11:19,244 7448 140159797859328   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:11:19,244 7448 140159797859328       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:11:55,182 7455 140220938417152   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:11:55,182 7455 140220938417152       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:12:40,122 7460 140457095402496   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:12:40,123 7460 140457095402496       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:31:00,489 7628 140342382584832   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:31:00,489 7628 140342382584832       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:31:37,502 7637 140020602582016   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:31:37,503 7637 140020602582016       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:31:52,995 7641 140193408500736   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:31:52,995 7641 140193408500736       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:34:50,324 7648 140131166180352   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:34:50,324 7648 140131166180352       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:35:48,660 7655 139676308182016   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:35:48,660 7655 139676308182016       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:35:59,081 7662 140106352104448   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:35:59,081 7662 140106352104448       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:40:45,513 7677 139816918070272   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:40:45,513 7677 139816918070272       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:40:53,850 7681 139787912569856   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:40:53,850 7681 139787912569856       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:41:26,955 7688 140578560885760   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:41:26,956 7688 140578560885760       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:55:08,263 8033 140238705304576   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:55:08,263 8033 140238705304576       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:55:36,469 8039 140665537561600   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:55:36,469 8039 140665537561600       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:56:19,775 8046 140205693432832   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:56:19,775 8046 140205693432832       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:56:42,182 8051 139655592772608   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:56:42,183 8051 139655592772608       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:57:12,836 8055 140683525170176   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:57:12,836 8055 140683525170176       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 17:59:20,771 8061 140632407196672   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 17:59:20,772 8061 140632407196672       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:00:38,372 8075 140669805589504   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:00:38,372 8075 140669805589504       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:01:55,132 8100 139717628662784   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:01:55,132 8100 139717628662784       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:02:09,674 8106 139802399351808   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:02:09,674 8106 139802399351808       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:03:19,622 8117 140718299046912   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:03:19,622 8117 140718299046912       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:03:46,168 8123 140642855269376   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:03:46,168 8123 140642855269376       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:04:45,814 8129 140132153205760   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:04:45,814 8129 140132153205760       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:06:52,465 8136 140633675527168   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:06:52,465 8136 140633675527168       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:08:21,306 8144 140122500420608   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:08:21,306 8144 140122500420608       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:14:13,419 8161 140480465884160   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:14:13,419 8161 140480465884160       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:15:10,425 8170 140624857936896   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:15:10,425 8170 140624857936896       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:18:18,204 8180 140141705081856   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:18:18,204 8180 140141705081856       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:18:59,684 8184 139767297197056   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:18:59,684 8184 139767297197056       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:23:11,048 8196 140000416125952   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:23:11,048 8196 140000416125952       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:23:19,626 8201 140167849030656   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:23:19,627 8201 140167849030656       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:23:31,166 8208 140313753711616   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:23:31,166 8208 140313753711616       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:25:22,013 8216 140417183773696   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:25:22,013 8216 140417183773696       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:28:47,839 8228 140604290921472   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:28:47,839 8228 140604290921472       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:31:55,449 8239 140163570017280   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:31:55,449 8239 140163570017280       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:36:05,054 8288 140553980310528   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:36:05,055 8288 140553980310528       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:37:04,196 8293 140310861132800   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:37:04,196 8293 140310861132800       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:47:38,918 8336 140192237802496   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:47:38,918 8336 140192237802496       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:48:13,691 8344 140417390896128   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:48:13,691 8344 140417390896128       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:50:36,540 8357 140700530664448   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:50:36,540 8357 140700530664448       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:52:27,784 8367 139621312910336   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:52:27,784 8367 139621312910336       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:59:35,554 8391 140462849569792   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:59:35,555 8391 140462849569792       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 18:59:50,947 8397 140170052424704   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 18:59:50,947 8397 140170052424704       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:00:09,997 8407 139877419648000   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:00:09,997 8407 139877419648000       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:00:31,635 8413 140334543033344   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:00:31,635 8413 140334543033344       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:04:17,626 8428 140639122629632   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:04:17,626 8428 140639122629632       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:06:02,089 8439 140707071792128   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:06:02,089 8439 140707071792128       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:11:12,517 8456 139868116521984   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:11:12,517 8456 139868116521984       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:12:21,671 8465 139993232061440   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:12:21,671 8465 139993232061440       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:12:51,054 8471 140175750304768   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:12:51,054 8471 140175750304768       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:13:39,182 8478 140151879365632   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:13:39,182 8478 140151879365632       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:14:17,292 8484 140351705224192   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:14:17,293 8484 140351705224192       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:22:53,188 8520 139923073684480   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:22:53,188 8520 139923073684480       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:42:41,855 8672 140013165741056   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:42:41,856 8672 140013165741056       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:44:04,896 8678 140675023012864   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:44:04,896 8678 140675023012864       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:44:54,430 8686 140083791545344   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:44:54,430 8686 140083791545344       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:45:38,621 8692 139672071209984   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:45:38,621 8692 139672071209984       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:52:36,282 8709 139736131601408   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:52:36,282 8709 139736131601408       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:54:17,742 8719 140641455477760   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:54:17,742 8719 140641455477760       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:55:13,782 8725 140165346538496   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:55:13,782 8725 140165346538496       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:55:48,709 8731 139975557207040   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:55:48,709 8731 139975557207040       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:57:41,722 8736 139892161762304   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:57:41,722 8736 139892161762304       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 19:59:09,091 8744 140466001638400   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 19:59:09,091 8744 140466001638400       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 20:00:15,113 8752 139925090554880   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 20:00:15,113 8752 139925090554880       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 20:00:59,154 8759 140026183803904   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 20:00:59,155 8759 140026183803904       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 20:37:12,605 8928 140256246748160   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 20:37:12,605 8928 140256246748160       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 20:44:19,528 8974 140258347336704   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 20:44:19,528 8974 140258347336704       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 20:48:47,066 8984 140391949149184   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 20:48:47,066 8984 140391949149184       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 20:49:06,709 8988 139918060143616   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 20:49:06,710 8988 139918060143616       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 20:49:46,021 8992 140505894265856   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 20:49:46,022 8992 140505894265856       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 20:50:06,304 9005 139862681957376   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 20:50:06,304 9005 139862681957376       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 20:50:33,869 9011 140425213846528   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 20:50:33,869 9011 140425213846528       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 20:52:16,518 9017 140400694498304   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 20:52:16,518 9017 140400694498304       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:00:53,569 9030 140603164087296   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:00:53,569 9030 140603164087296       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:04:41,796 9043 140180631041024   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:04:41,796 9043 140180631041024       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:05:06,952 9049 140576587531264   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:05:06,952 9049 140576587531264       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:06:59,234 9057 140133967528960   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:06:59,234 9057 140133967528960       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:07:49,189 9063 139953076851712   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:07:49,190 9063 139953076851712       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:08:24,356 9074 140088970601472   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:08:24,356 9074 140088970601472       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:08:58,130 9079 140328424694784   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:08:58,130 9079 140328424694784       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:09:15,208 9084 139849342739456   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:09:15,209 9084 139849342739456       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:10:03,170 9089 139664709825536   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:10:03,170 9089 139664709825536       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:21:02,373 9111 140246133179392   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:21:02,374 9111 140246133179392       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:21:18,217 9118 140211536569344   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:21:18,217 9118 140211536569344       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:25:52,352 9128 139734267491328   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:25:52,352 9128 139734267491328       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:26:26,584 9134 140393930081280   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:26:26,584 9134 140393930081280       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:27:11,961 9140 139866917573632   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:27:11,961 9140 139866917573632       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:27:15,686 9144 139896271782912   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:27:15,686 9144 139896271782912       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:27:45,211 9149 140422860723200   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:27:45,211 9149 140422860723200       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:29:54,346 9155 140541153514496   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:29:54,346 9155 140541153514496       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:31:07,526 9163 139985751086080   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:31:07,526 9163 139985751086080       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:31:15,080 9168 140525738685440   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:31:15,080 9168 140525738685440       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-17 21:32:59,445 9179 140401516934144   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-17 21:32:59,445 9179 140401516934144       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 09:20:46,939 9617 140577278882816   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 09:20:46,939 9617 140577278882816       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 09:21:30,811 9621 139918865372160   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 09:21:30,811 9621 139918865372160       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 09:22:09,544 9628 139991805363200   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 09:22:09,545 9628 139991805363200       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 09:35:56,593 9678 140040244642816   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 09:35:56,593 9678 140040244642816       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 09:36:40,951 9685 139654253925376   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 09:36:40,951 9685 139654253925376       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 09:41:46,292 9699 139667091342336   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 09:41:46,292 9699 139667091342336       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 09:42:59,859 9707 139883344196608   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 09:42:59,859 9707 139883344196608       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 09:52:21,727 9784 140588226143232   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 09:52:21,727 9784 140588226143232       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 09:59:28,151 9813 139946393621504   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 09:59:28,151 9813 139946393621504       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:04:23,459 9825 139833453679616   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:04:23,459 9825 139833453679616       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:04:41,150 9856 140449167315968   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:04:41,151 9856 140449167315968       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:08:43,882 9861 140441483846656   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:08:43,882 9861 140441483846656       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:16:14,608 9877 140598310396928   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:16:14,608 9877 140598310396928       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:16:50,823 9884 140246444069888   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:16:50,823 9884 140246444069888       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:21:51,847 9891 140433851343872   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:21:51,847 9891 140433851343872       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:22:13,958 9899 140552074310656   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:22:13,958 9899 140552074310656       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:22:30,288 9906 139713042347008   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:22:30,288 9906 139713042347008       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:25:01,178 9914 140058629510144   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:25:01,178 9914 140058629510144       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:26:53,964 9919 140065022903296   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:26:53,964 9919 140065022903296       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:27:13,991 9924 140565111747584   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:27:13,991 9924 140565111747584       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:27:43,503 9929 139768241820672   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:27:43,503 9929 139768241820672       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:28:03,611 9933 140416437199872   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:28:03,611 9933 140416437199872       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:28:20,667 9938 139710666118144   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:28:20,668 9938 139710666118144       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:33:58,252 9961 139821856224256   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:33:58,253 9961 139821856224256       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:36:16,655 9972 140685861229568   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:36:16,655 9972 140685861229568       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:36:59,276 9977 139679905076224   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:36:59,276 9977 139679905076224       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:37:47,716 9982 140088831230976   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:37:47,717 9982 140088831230976       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:38:28,697 9987 140562949379072   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:38:28,697 9987 140562949379072       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:39:26,247 9992 140490722915328   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:39:26,247 9992 140490722915328       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:40:18,666 9997 139646205776896   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:40:18,667 9997 139646205776896       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:41:39,792 10006 140579160192000   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:41:39,793 10006 140579160192000       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:43:27,076 10013 140489642832896   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:43:27,076 10013 140489642832896       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:44:47,714 10017 140275785262080   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:44:47,714 10017 140275785262080       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:45:32,210 10024 140306074510336   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:45:32,211 10024 140306074510336       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:46:13,796 10028 140374744867840   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:46:13,796 10028 140374744867840       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:47:57,856 10036 139690420864000   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:47:57,857 10036 139690420864000       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:50:08,870 10041 139643015054336   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:50:08,870 10041 139643015054336       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:50:27,900 10046 139736892830720   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:50:27,900 10046 139736892830720       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:51:36,526 10057 140139570463744   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:51:36,526 10057 140139570463744       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:53:53,615 10066 140589697410048   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:53:53,615 10066 140589697410048       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 10:58:22,692 10072 140665191388160   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 10:58:22,692 10072 140665191388160       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 11:01:44,008 10082 140043932890112   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 11:01:44,009 10082 140043932890112       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 11:02:01,200 10087 140343117296640   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 11:02:01,200 10087 140343117296640       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:10:10,305 10389 140557483467776   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:10:10,306 10389 140557483467776       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:12:13,165 10401 139686486377472   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:12:13,165 10401 139686486377472       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:13:06,605 10412 140413350052864   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:13:06,605 10412 140413350052864       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:16:19,244 10432 140250994521088   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:16:19,244 10432 140250994521088       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:17:22,532 10445 139741919597568   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:17:22,532 10445 139741919597568       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:19:21,067 10458 139825016448000   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:19:21,067 10458 139825016448000       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:20:20,634 10472 139931242300416   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:20:20,634 10472 139931242300416       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:21:42,498 10488 139812996035584   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:21:42,498 10488 139812996035584       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:23:50,738 10494 140265564599296   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:23:50,738 10494 140265564599296       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:25:22,036 10501 139969344640000   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:25:22,036 10501 139969344640000       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:26:24,232 10507 139661493142528   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:26:24,233 10507 139661493142528       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:28:45,954 10515 140409249678336   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:28:45,954 10515 140409249678336       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:29:22,570 10526 140332202865664   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:29:22,570 10526 140332202865664       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:29:57,919 10538 140079205753856   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:29:57,919 10538 140079205753856       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:30:27,350 10548 140564387644416   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:30:27,350 10548 140564387644416       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:34:08,173 10592 140257464644608   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:34:08,173 10592 140257464644608       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:34:33,566 10612 140400201384960   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:34:33,567 10612 140400201384960       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:37:26,663 10621 140193856054272   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:37:26,663 10621 140193856054272       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:37:48,581 10626 140534754558976   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:37:48,581 10626 140534754558976       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:38:32,492 10632 140056415523840   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:38:32,492 10632 140056415523840       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:47:15,776 10650 139794980873216   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:47:15,776 10650 139794980873216       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:47:35,424 10657 140554390242304   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:47:35,425 10657 140554390242304       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:48:39,992 10662 140272644752384   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:48:39,992 10662 140272644752384       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:48:57,879 10669 140443822961664   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:48:57,879 10669 140443822961664       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:54:27,669 10677 139898505286656   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:54:27,670 10677 139898505286656       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-18 13:57:17,102 10690 140600821154816   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-18 13:57:17,102 10690 140600821154816       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 15:42:06,161 13984 140166125347840   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 15:42:06,161 13984 140166125347840       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 15:55:01,931 14031 139715091936256   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 15:55:01,931 14031 139715091936256       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 18:39:11,162 15209 140013934044160   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 18:39:11,162 15209 140013934044160       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 18:40:02,600 15217 140014948918272   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 18:40:02,600 15217 140014948918272       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 18:40:23,711 15223 140295722214400   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 18:40:23,711 15223 140295722214400       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 18:40:54,238 15229 140545445393408   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 18:40:54,239 15229 140545445393408       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 18:43:16,375 15240 139828593845248   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 18:43:16,376 15240 139828593845248       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 18:47:38,041 16732 140202937209856   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 18:47:38,041 16732 140202937209856       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 18:48:11,646 16737 140543824700416   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 18:48:11,647 16737 140543824700416       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 18:48:39,858 16744 140514029827072   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 18:48:39,858 16744 140514029827072       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 18:49:05,802 16747 140283512120320   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 18:49:05,802 16747 140283512120320       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:03:40,175 25452 139689917617152   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:03:40,176 25452 139689917617152       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:04:20,618 25460 140641212314624   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:04:20,618 25460 140641212314624       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:04:43,164 25467 140078773609472   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:04:43,164 25467 140078773609472       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:11:26,352 25507 140496870872064   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:11:26,352 25507 140496870872064       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:11:45,001 25512 140372954915840   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:11:45,002 25512 140372954915840       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:12:25,294 25521 140338002330624   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:12:25,294 25521 140338002330624       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:12:42,296 25537 139907817300992   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:12:42,296 25537 139907817300992       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:13:44,182 25577 140177094009856   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:13:44,182 25577 140177094009856       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:14:03,527 25581 139794889200640   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:14:03,528 25581 139794889200640       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:15:06,989 25605 140501640074240   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:15:06,989 25605 140501640074240       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:16:54,786 25624 140679158178816   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:16:54,786 25624 140679158178816       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:17:32,908 25633 140183068652544   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:17:32,908 25633 140183068652544       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:21:01,748 25648 139964475720704   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:21:01,748 25648 139964475720704       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:25:49,399 25675 140185855276032   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:25:49,399 25675 140185855276032       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:32:48,209 26508 140024452191232   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:32:48,209 26508 140024452191232       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:35:02,689 26523 139989812495360   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:35:02,689 26523 139989812495360       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:36:44,483 26533 140139540567040   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:36:44,484 26533 140139540567040       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:37:25,364 26540 140570105275392   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:37:25,364 26540 140570105275392       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:39:38,153 26548 140310162056192   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:39:38,153 26548 140310162056192       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:45:07,817 26570 140500222858240   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:45:07,818 26570 140500222858240       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:46:27,673 26582 139687795835904   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:46:27,674 26582 139687795835904       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 19:49:08,896 26595 139861844333568   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 19:49:08,896 26595 139861844333568       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-29 21:37:29,892 26917 140160408699904   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-29 21:37:29,892 26917 140160408699904       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 09:01:02,638 28718 140435338105856   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 09:01:02,639 28718 140435338105856       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 10:56:30,769 29585 139786864223232   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 10:56:30,769 29585 139786864223232       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 10:58:00,628 29596 140043725222912   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 10:58:00,628 29596 140043725222912       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 10:59:39,160 29605 140515035091968   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 10:59:39,160 29605 140515035091968       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:00:46,840 29612 139893712937984   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:00:46,841 29612 139893712937984       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:01:06,491 29618 140279201342464   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:01:06,491 29618 140279201342464       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:02:12,452 29639 139816185787392   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:02:12,453 29639 139816185787392       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:06:13,013 29665 140568160228352   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:06:13,013 29665 140568160228352       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:07:12,703 29675 139680078386176   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:07:12,703 29675 139680078386176       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:08:21,296 29684 140635650229248   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:08:21,296 29684 140635650229248       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:08:33,284 29690 140639057372160   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:08:33,284 29690 140639057372160       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:08:47,858 29695 140310482408448   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:08:47,858 29695 140310482408448       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:15:13,691 29725 140493233779712   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:15:13,691 29725 140493233779712       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:15:48,763 29734 140624415421440   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:15:48,764 29734 140624415421440       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:20:51,576 29769 140631711654912   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:20:51,576 29769 140631711654912       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:21:46,565 29779 140623893431296   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:21:46,565 29779 140623893431296       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:22:36,785 29788 140015514403840   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:22:36,786 29788 140015514403840       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:22:50,797 29794 140153160586240   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:22:50,797 29794 140153160586240       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:26:48,445 29813 140042688955392   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:26:48,445 29813 140042688955392       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:27:04,347 29818 139866323088384   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:27:04,347 29818 139866323088384       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:27:25,712 29825 140672993371136   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:27:25,713 29825 140672993371136       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:27:47,631 29830 140012798960640   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:27:47,631 29830 140012798960640       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:27:58,306 29836 139677144663040   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:27:58,306 29836 139677144663040       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:28:33,400 29843 139768223024128   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:28:33,400 29843 139768223024128       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:28:53,209 29848 140534904660992   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:28:53,210 29848 140534904660992       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:29:00,572 29853 139629182071808   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:29:00,572 29853 139629182071808       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:29:41,665 29864 140066048435200   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:29:41,665 29864 140066048435200       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:30:09,994 29870 140112773612544   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:30:09,994 29870 140112773612544       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:30:18,407 29877 140400291222528   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:30:18,407 29877 140400291222528       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:30:57,848 29883 140300297929728   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:30:57,848 29883 140300297929728       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 11:31:10,566 29888 139725373649920   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 11:31:10,566 29888 139725373649920       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 12:46:08,626 30172 140018774635520   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 12:46:08,626 30172 140018774635520       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 12:46:31,508 30181 139744102671360   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 12:46:31,508 30181 139744102671360       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 12:46:51,849 30186 140388181017600   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 12:46:51,849 30186 140388181017600       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 12:47:19,420 30191 140502707266560   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 12:47:19,420 30191 140502707266560       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 12:53:05,778 30253 139678629159936   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 12:53:05,778 30253 139678629159936       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 12:54:12,357 30261 140201412211712   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 12:54:12,357 30261 140201412211712       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 12:54:26,970 30268 140188654126080   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 12:54:26,971 30268 140188654126080       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 12:55:17,674 30273 140540713489408   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 12:55:17,675 30273 140540713489408       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 12:55:45,647 30280 140614351082496   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 12:55:45,647 30280 140614351082496       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 12:57:32,075 30293 140004526097408   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 12:57:32,076 30293 140004526097408       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 12:57:45,572 30298 140333624386560   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 12:57:45,572 30298 140333624386560       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 12:58:17,945 30303 139942244377600   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 12:58:17,946 30303 139942244377600       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:05:57,512 30346 140388733027328   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:05:57,512 30346 140388733027328       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:06:39,713 30358 140154037654528   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:06:39,713 30358 140154037654528       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:06:52,360 30362 140040562574336   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:06:52,361 30362 140040562574336       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:07:19,618 30367 140478457205760   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:07:19,619 30367 140478457205760       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:08:38,802 30379 140307050865664   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:08:38,803 30379 140307050865664       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:11:03,494 30396 140672076239872   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:11:03,494 30396 140672076239872       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:11:48,677 30404 140588768945152   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:11:48,678 30404 140588768945152       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:11:57,824 30409 140621150766080   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:11:57,824 30409 140621150766080       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:21:23,547 30454 139918574244864   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:21:23,547 30454 139918574244864       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:21:38,367 30465 139931059127296   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:21:38,367 30465 139931059127296       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:21:53,456 30470 140593979933696   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:21:53,456 30470 140593979933696       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:24:09,805 30481 140566436471808   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:24:09,806 30481 140566436471808       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:24:25,683 30488 140413666116608   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:24:25,683 30488 140413666116608       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:24:57,576 30493 139884684506112   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:24:57,576 30493 139884684506112       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:25:12,191 30498 140021764015104   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:25:12,191 30498 140021764015104       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:25:44,578 30507 140409346302976   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:25:44,578 30507 140409346302976       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:26:16,049 30517 140233805083648   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:26:16,050 30517 140233805083648       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:27:25,138 30526 139942781297664   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:27:25,139 30526 139942781297664       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:27:42,777 30532 140541534282752   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:27:42,778 30532 140541534282752       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:28:29,154 30539 140409925596160   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:28:29,154 30539 140409925596160       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:33:46,017 30568 139984447194112   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:33:46,017 30568 139984447194112       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:34:20,415 30573 140607978984448   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:34:20,415 30573 140607978984448       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:34:35,308 30581 140523197985792   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:34:35,308 30581 140523197985792       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:35:51,611 30589 140021504357376   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:35:51,612 30589 140021504357376       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 13:36:03,336 30594 140194177688576   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 13:36:03,337 30594 140194177688576       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 14:27:05,405 30778 140173361226752   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 14:27:05,405 30778 140173361226752       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 14:55:25,763 30929 140073703937024   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 14:55:25,763 30929 140073703937024       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:02:30,042 30987 140415903990784   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:02:30,042 30987 140415903990784       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:05:47,155 31002 140523949339648   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:05:47,156 31002 140523949339648       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:06:01,950 31006 140318082655232   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:06:01,950 31006 140318082655232       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:14:59,169 31075 140664268743680   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:14:59,169 31075 140664268743680       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:15:16,775 31082 139868165141504   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:15:16,776 31082 139868165141504       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:15:59,275 31088 140328426009600   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:15:59,275 31088 140328426009600       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:16:20,623 31093 139753165210624   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:16:20,623 31093 139753165210624       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:16:51,730 31101 139845909758976   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:16:51,731 31101 139845909758976       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:17:10,239 31106 139927877989376   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:17:10,239 31106 139927877989376       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:17:47,218 31113 139769627079680   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:17:47,218 31113 139769627079680       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:19:04,474 31120 140203424515072   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:19:04,474 31120 140203424515072       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:19:51,276 31127 140542175024128   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:19:51,276 31127 140542175024128       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:20:08,807 31132 140466434704384   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:20:08,808 31132 140466434704384       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:21:14,550 31143 139945386259456   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:21:14,551 31143 139945386259456       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:21:27,486 31149 139930031465472   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:21:27,486 31149 139930031465472       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:21:53,696 31154 140132623471616   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:21:53,696 31154 140132623471616       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:22:28,724 31160 140243229991936   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:22:28,724 31160 140243229991936       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:22:43,760 31167 140452318315520   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:22:43,760 31167 140452318315520       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:24:00,054 31175 140525984973824   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:24:00,054 31175 140525984973824       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:32:02,621 31216 140553066202112   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:32:02,621 31216 140553066202112       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:33:02,212 31228 139993770882048   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:33:02,212 31228 139993770882048       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:33:15,957 31233 140513790133248   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:33:15,958 31233 140513790133248       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:33:33,091 31240 140214463505408   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:33:33,092 31240 140214463505408       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:34:03,996 31245 139731849757696   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:34:03,997 31245 139731849757696       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:34:55,656 31252 140461384840192   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:34:55,656 31252 140461384840192       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:35:46,784 31259 140087206441984   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:35:46,784 31259 140087206441984       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:36:00,093 31265 139807563719680   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:36:00,093 31265 139807563719680       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:37:31,789 31285 139670811280384   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:37:31,789 31285 139670811280384       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:42:00,532 31308 140674926363648   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:42:00,533 31308 140674926363648       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:47:11,507 31339 140213257913344   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:47:11,507 31339 140213257913344       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:48:18,885 31349 139726818198528   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:48:18,886 31349 139726818198528       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:49:49,714 31358 140500167394304   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:49:49,714 31358 140500167394304       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:50:19,442 31365 140279798551552   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:50:19,442 31365 140279798551552       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:53:17,736 31379 139935535109120   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:53:17,736 31379 139935535109120       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:54:12,441 31388 140631361840128   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:54:12,441 31388 140631361840128       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 15:57:23,050 31404 139647755756544   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 15:57:23,050 31404 139647755756544       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:00:30,876 31419 140147191645184   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:00:30,876 31419 140147191645184       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:00:44,710 31426 139689571480576   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:00:44,710 31426 139689571480576       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:02:34,847 31450 140073035985920   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:02:34,847 31450 140073035985920       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:02:42,264 31454 140672097305600   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:02:42,265 31454 140672097305600       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:02:51,371 31460 139706998387712   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:02:51,371 31460 139706998387712       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:03:18,609 31465 139857398387712   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:03:18,609 31465 139857398387712       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:11:32,451 31516 140692712702976   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:11:32,451 31516 140692712702976       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:11:37,908 31521 140242365174784   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:11:37,908 31521 140242365174784       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:11:56,994 31529 140059874612224   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:11:56,994 31529 140059874612224       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:12:33,368 31537 140294630614016   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:12:33,368 31537 140294630614016       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:16:59,970 31553 140196912690176   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:16:59,970 31553 140196912690176       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:18:11,084 31562 140022482981888   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:18:11,085 31562 140022482981888       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:21:08,429 31577 140171971011584   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:21:08,429 31577 140171971011584       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:22:20,077 31588 140717184865280   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:22:20,077 31588 140717184865280       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:22:36,900 31599 140303170253824   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:22:36,901 31599 140303170253824       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:23:21,127 31604 140694321144832   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:23:21,128 31604 140694321144832       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:23:36,140 31612 140414828979200   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:23:36,140 31612 140414828979200       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:23:48,753 31617 140326277010432   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:23:48,753 31617 140326277010432       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:24:34,534 31624 140405883999232   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:24:34,534 31624 140405883999232       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:25:35,350 31632 140530708173824   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:25:35,350 31632 140530708173824       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:26:01,823 31637 140560727069696   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:26:01,824 31637 140560727069696       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:26:33,903 31647 140205538567168   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:26:33,903 31647 140205538567168       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:30:47,881 31672 140607708906496   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:30:47,881 31672 140607708906496       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:31:39,119 31681 140411958207488   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:31:39,119 31681 140411958207488       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:33:54,106 31697 140236690908160   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:33:54,106 31697 140236690908160       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:34:17,486 31704 139854918063104   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:34:17,486 31704 139854918063104       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:34:53,710 31712 140688249291776   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:34:53,710 31712 140688249291776       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:35:18,428 31718 140556136268800   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:35:18,429 31718 140556136268800       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:35:56,178 31724 140634367120384   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:35:56,178 31724 140634367120384       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:37:08,721 31746 139865116816384   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:37:08,721 31746 139865116816384       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:41:27,101 31774 140534704497664   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:41:27,102 31774 140534704497664       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:41:39,492 31781 139942638023680   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:41:39,493 31781 139942638023680       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:42:01,373 31786 140055505056768   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:42:01,373 31786 140055505056768       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:48:38,766 31816 140307996660736   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:48:38,766 31816 140307996660736       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:49:59,531 31826 140589320000512   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:49:59,532 31826 140589320000512       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:50:18,566 31830 140061089313792   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:50:18,566 31830 140061089313792       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:50:33,750 31836 140065142879232   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:50:33,750 31836 140065142879232       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2016-12-30 16:51:04,080 31845 140290210755584   CRITICAL ******** tau4 Sample App has started. ********
+2016-12-30 16:51:04,080 31845 140290210755584       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 09:45:19,069 13511 140118751650816   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 09:45:19,070 13511 140118751650816       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 09:48:20,732 13527 139822501450752   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 09:48:20,732 13527 139822501450752       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 09:48:57,972 13535 140293678244864   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 09:48:57,973 13535 140293678244864       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 09:52:29,226 13551 140400118342656   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 09:52:29,226 13551 140400118342656       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 09:53:05,838 13558 139914204861440   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 09:53:05,838 13558 139914204861440       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 09:53:28,064 13573 139947239187456   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 09:53:28,065 13573 139947239187456       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 09:54:39,246 13581 140212074398720   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 09:54:39,247 13581 140212074398720       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 09:55:48,054 13593 140159539958784   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 09:55:48,054 13593 140159539958784       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 09:57:16,753 13602 140113503626240   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 09:57:16,753 13602 140113503626240       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:01:34,304 13622 139708618089472   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:01:34,305 13622 139708618089472       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:05:36,083 13647 140367973254144   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:05:36,083 13647 140367973254144       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:05:58,985 13654 139723930608640   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:05:58,985 13654 139723930608640       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:07:08,097 13663 139765963224064   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:07:08,098 13663 139765963224064       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:07:29,697 13670 140195768644608   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:07:29,697 13670 140195768644608       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:07:42,455 13676 139777204044800   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:07:42,456 13676 139777204044800       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:10:03,364 13692 140592339149824   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:10:03,364 13692 140592339149824       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:10:37,136 13696 140706353837056   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:10:37,136 13696 140706353837056       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:17:20,257 13729 140102855767040   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:17:20,257 13729 140102855767040       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:17:48,353 13739 140017503724544   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:17:48,353 13739 140017503724544       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:18:59,487 13748 140530099553280   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:18:59,488 13748 140530099553280       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:21:08,161 13760 140162087482368   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:21:08,161 13760 140162087482368       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:23:49,262 13821 140134495728640   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:23:49,262 13821 140134495728640       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:23:55,956 13828 140707322352640   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:23:55,956 13828 140707322352640       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
+2017-01-05 10:24:03,908 13831 140166534820864   CRITICAL ******** tau4 Sample App has started. ********
+2017-01-05 10:24:03,908 13831 140166534820864       INFO Program has started with these args: '['/home/fgeiger/projects/tau4/src/py3/src/main.py', '_DEBUG=1']'. 
